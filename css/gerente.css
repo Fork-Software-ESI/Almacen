@@ -1,0 +1,73 @@
+
+main{
+    padding: 75px 0;
+}
+
+h1{
+    color: white;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+h2{
+    color: white;
+    text-align: center;
+}
+
+.contenedor{
+    padding: 1em 0;
+}
+
+.contenedor_opciones{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#estanteria_lista{
+    width: 100%;
+}
+
+.opciones{
+    color: white;
+    width: 50%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid white;
+    transition: color 0.5s;
+}
+
+.opciones a:hover{
+    color: #0088ae;
+}
+
+.contenedor{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.opcion{
+    border: 1px solid white;
+    width: 500px;
+    height: auto;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+ul, li{
+    list-style: none;
+}
+
+@media (max-width:900px){
+    .opcion{
+        width: 90%;
+    }
+    .opciones{
+        width: 50%;
+    }
+}
