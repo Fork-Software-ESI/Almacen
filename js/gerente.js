@@ -431,8 +431,6 @@ function verChoferesDisponibles(ID){
     });
 }
 
-ChoferesCamiones
-
 function listaChoferCamion(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/choferes/ocupados",
@@ -463,4 +461,160 @@ function listaChoferCamion(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
             alert("No se pudo encontrar el chofer");
         }
     });
+}
+
+// Camion
+
+function verCamiones(ID, Matricula, PesoMaximoKg){
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/camiones",
+        type: "GET",
+        data: {
+            'ID': ID,
+            'Matricula': Matricula,
+            'PesoMaximoKg': PesoMaximoKg,
+        },
+        success: function (data) {
+            document.getElementById('tablaResultados');
+            tablaResultados.innerHTML = '';
+            data.Camiones.forEach(camion => {
+                var resultado = document.createElement('tr');
+                resultado.innerHTML = `
+                    <td data-cell="ID Camion">${camion.ID}</td>
+                    <td data-cell="Matricula">${camion.Matricula}</td>
+                    <td data-cell="PesoMaximoKg">${camion.PesoMaximoKg}</td>
+                    <td data-cell="Editar"><button class="btn-modificar" onclick="datosCamion('${camion.ID}', '${camion.Matricula}', '${camion.PesoMaximoKg}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
+                    <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarCamion(${camion.ID})"><i class="fa fa-trash"></i></button></td>
+                `;
+                document.getElementById('tablaResultados').appendChild(resultado);
+            });
+        },
+        error: function () {
+            alert("No se pudo encontrar el chofer");
+        }
+    });
+}
+
+function verCamionesSinChofer(ID, Matricula, PesoMaximoKg){
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/camiones/libres",
+        type: "GET",
+        data: {
+            'ID': ID,
+            'Matricula': Matricula,
+            'PesoMaximoKg': PesoMaximoKg,
+        },
+        success: function (data) {
+            document.getElementById('tablaResultados');
+            tablaResultados.innerHTML = '';
+            data.Camiones.forEach(camion => {
+                var resultado = document.createElement('tr');
+                resultado.innerHTML = `
+                    <td data-cell="ID Camion">${camion.ID}</td>
+                    <td data-cell="Matricula">${camion.Matricula}</td>
+                    <td data-cell="PesoMaximoKg">${camion.PesoMaximoKg}</td>
+                    <td data-cell="Editar"><button class="btn-modificar" onclick="datosCamion('${camion.ID}', '${camion.Matricula}', '${camion.PesoMaximoKg}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
+                    <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarCamion(${camion.ID})"><i class="fa fa-trash"></i></button></td>
+                `;
+                document.getElementById('tablaResultados').appendChild(resultado);
+            });
+        },
+        error: function () {
+            alert("No se pudo encontrar el chofer");
+        }
+    });
+}
+
+function asignarChoferCamion(ID_Chofer, ID_Camion){
+    var ID_Chofer = document.getElementById("ID_Chofer").value;
+    var ID_Camion = document.getElementById("ID_Camion").value;
+    console.log(ID_Chofer, ID_Camion);
+
+    if (!ID_Chofer || !ID_Camion) {
+        alert("Completa todos los campos obligatorios en el formulario.");
+        return;
+    }
+
+    if(ID_Chofer === undefined || ID_Camion === undefined){
+        alert("Alguno de los valores es undefined. Verifica tu formulario.");
+        return;
+    }
+
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/camiones",
+        type: "POST",
+        data: {
+            'ID_Chofer': ID_Chofer,
+            'ID_Camion': ID_Camion,
+        },
+        success: function (data) {
+            alert("Chofer asignado con éxito");
+            document.getElementById("ID_Chofer").value = "";
+            document.getElementById("ID_Camion").value = "";
+        },
+        error: function () {
+            alert("No se pudo asignar el chofer");
+        }
+    });
+}
+
+function asignarLoteCamion(){
+
+}
+
+function verCamionesEnPlataformas(){
+
+}
+
+function verCamioneEnTransito(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/camiones/transito",
+        type: "GET",
+        data: {
+            'ID_Chofer': ID_Chofer,
+            'ID_Camion': ID_Camion,
+            'Fecha_Hora_Inicio': Fecha_Hora_Inicio,
+            'ID_Estado': ID_Estado,
+        },
+        success: function (data) {
+            document.getElementById('tablaResultados').innerHTML = '';
+            document.getElementById('tablaResultadosSalida').innerHTML = '';
+
+            // Manejar los camiones en tránsito
+            if (data['Camiones en tránsito']) {
+                data['Camiones en tránsito'].forEach(camion => {
+                    var resultado = document.createElement('tr');
+                    resultado.innerHTML = `
+                        <td data-cell="ID Chofer">${camion.ID_Chofer}</td>
+                        <td data-cell="ID Camion">${camion.ID_Camion}</td>
+                        <td data-cell="Fecha_Hora_Inicio">${camion.Fecha_Hora_Inicio}</td>
+                        <td data-cell="ID Estado">${camion.ID_Estado}</td>
+                    `;
+                    document.getElementById('tablaResultados').appendChild(resultado);
+                });
+            }
+
+            // Manejar los horarios de salida
+            if (data['Horarios de salida']) {
+                for (const ID_Camion in data['Horarios de salida']) {
+                    if (data['Horarios de salida'].hasOwnProperty(ID_Camion)) {
+                        var horario = data['Horarios de salida'][ID_Camion];
+                        var resultadoSalida = document.createElement('tr');
+                        resultadoSalida.innerHTML = `
+                            <td data-cell="ID Camion">${ID_Camion}</td>
+                            <td data-cell="Fecha_Hora_Salida">${horario}</td>
+                        `;
+                        document.getElementById('tablaResultadosSalida').appendChild(resultadoSalida);
+                    }
+                }
+            }
+        },
+        error: function () {
+            alert("No se pudo encontrar el chofer");
+        }
+    });
+}
+
+function marcarCamionComoPreparado(){
+
 }
