@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista - Paquete</title>
-    <link rel="stylesheet" href="../css/lista.css">
+    <title>Asignar a Lote - Paquete</title>
+    <link rel="stylesheet" href="../css/crear.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/tabla.css">
     <link rel="icon" href="../img/LOGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
@@ -46,31 +45,27 @@
     </header>
 
     <main>
-        <div class="contenedor_lista">
-            <h2>Lista - Paquete</h2>
-            <form action="">
-                <label for="ID_Almacen" style="color: white;">ID del Almacen: </label>
-                <input type="number" name="ID_Almacen" id="ID_Almacen" required><br><br>
-                <button class="btn-a" type="button" onclick="listarPaquetesAlmacen()">Listar Paquetes</button>
-                <br><br>
-            </form>
-            <div class="lista">
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th>ID Paquete</th>
-                            <th>ID Estante</th>
-                            <th>ID Almacen</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaResultados">
-                    </tbody>
-                </table>
+        <div class="container_crear">
+            <h1>Asignar a Lote - Paquete</h1>
+            <div class="formulario">
+                <form action="">
+                    <label for="ID_Gerente">ID del Gerente: </label>
+                    <input type="number" name="ID_Gerente" id="ID_Gerente" required>
+                    <br><br>
+                    <label for="ID_Paquete">ID del Paquete: </label>
+                    <input type="number" name="ID_Paquete" id="ID_Paquete" required>
+                    <br><br>
+                    <label for="ID_Lote">ID del Lote: </label>
+                    <input type="number" name="ID_Lote" id="ID_Lote" required>
+                    <br><br>
+                    <button class="btn-a" type="button" onclick="asignarPaqueteLote()">Listar Paquetes</button>
+                    <br><br>
+                </form>
             </div>
         </div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer-lote">
         <div class="container-footer">
             <div class="empresa-container espacio">
                 <h3>Empresa:</h3>

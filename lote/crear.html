@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear - Lote</title>
-    <link rel="icon" href="img/LOGO.png">
+    <link rel="icon" href="../img/LOGO.png">
     <link rel="stylesheet" href="../css/crear.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,21 +49,22 @@
             <h1>Crear - Lote</h1>
             <div class="formulario">
                 <form action="">
-                    <fieldset>
-                        <label for="descripcion">Descripción:</label>
-                        <input type="text" id="descripcion" name="descripcion" required>
-                        <br>
-                        <label for="peso">Peso en kg:</label>
-                        <input type="number" id="peso" name="peso" step="0.01" required>
-                        <br>
-                        <input type="submit">
-                    </fieldset>
+                    <label for="ID_Gerente">ID del gerente: </label>
+                    <input type="number" id="ID_Gerente" name="ID_Gerente" required>
+                    <br>
+                    <label for="Descripcion">Descripción:</label>
+                    <input type="text" id="Descripcion" name="Descripcion" required>
+                    <br>
+                    <label for="Peso_Kg">Peso en kg:</label>
+                    <input type="number" id="Peso_Kg" name="Peso_Kg" step="0.01" required>
+                    <br><br>
+                    <button class="btn-a" type="button" onclick="crearLote()">Crear Lote</button>    
                 </form>
             </div>
         </div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer-lote">
         <div class="container-footer">
             <div class="empresa-container espacio">
                 <h3>Empresa:</h3>
@@ -94,6 +95,7 @@
             </div>
         </div>
     </footer>
-    <script src="../../js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../js/gerente.js"></script>
 </body>
 </html>

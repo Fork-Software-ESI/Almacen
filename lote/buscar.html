@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista - Paquete</title>
+    <title>Buscar - Lote</title>
     <link rel="stylesheet" href="../css/lista.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/tabla.css">
@@ -47,30 +47,36 @@
 
     <main>
         <div class="contenedor_lista">
-            <h2>Lista - Paquete</h2>
+            <h2>Buscar - Lote</h2>
             <form action="">
-                <label for="ID_Almacen" style="color: white;">ID del Almacen: </label>
-                <input type="number" name="ID_Almacen" id="ID_Almacen" required><br><br>
-                <button class="btn-a" type="button" onclick="listarPaquetesAlmacen()">Listar Paquetes</button>
+                <label for="ID_Gerente" style="color: white;">ID Gerente: </label>
+                <input type="number" name="ID_Gerente" id="ID_Gerente">
                 <br><br>
+                <label for="ID_Lote" style="color: white;">ID Lote: </label>
+                <input type="number" name="ID_Lote" id="ID_Lote">
+                <br><br>
+                <button class="btn-a" type="button" onclick="buscarLote()">Buscar Lote</button>
             </form>
+            <br><br>
             <div class="lista">
                 <table class="tabla">
                     <thead>
                         <tr>
-                            <th>ID Paquete</th>
-                            <th>ID Estante</th>
-                            <th>ID Almacen</th>
+                            <th>ID</th>
+                            <th>Descripcion</th>
+                            <th>Peso_Kg</th>
+                            <th>ID_Estado</th>
+                            <th colspan="2">Accion</th>
                         </tr>
                     </thead>
                     <tbody id="tablaResultados">
                     </tbody>
                 </table>
-            </div>
+            </div>    
         </div>
     </main>
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
         <div class="container-footer">
             <div class="empresa-container espacio">
                 <h3>Empresa:</h3>

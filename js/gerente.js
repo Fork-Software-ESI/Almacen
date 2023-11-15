@@ -14,14 +14,14 @@ function buscarPaquete(ID_Cliente){
             data.Paquete.forEach(paquete => {
                 var resultado = document.createElement('tr');
                 resultado.innerHTML = `
-                    <td>${paquete.ID}</td>
-                    <td>${paquete.ID_Cliente}</td>
-                    <td>${paquete.Descripcion}</td>
-                    <td>${paquete.Peso_Kg}</td>
-                    <td>${paquete.ID_Estado}</td>
-                    <td>${paquete.Destino}</td>
-                    <td><button class="btn-a" onclick="datosPaquete('${paquete.ID}', '${paquete.ID_Cliente}', '${paquete.Descripcion}', '${paquete.Peso_Kg}', '${paquete.ID_Estado}', '${paquete.Destino}')" style="color: black;">Editar</button></td>
-                    <td><button class="btn-a" onclick="eliminarPaquete(${paquete.ID})">Eliminar</button></td>
+                    <td data-cell="ID Paquete">${paquete.ID}</td>
+                    <td data-cell="ID Cliente">${paquete.ID_Cliente}</td>
+                    <td data-cell="Descripcion">${paquete.Descripcion}</td>
+                    <td data-cell="Peso_Kg">${paquete.Peso_Kg}</td>
+                    <td data-cell="ID Estado">${paquete.ID_Estado}</td>
+                    <td data-cell="Destino">${paquete.Destino}</td>
+                    <td data-cell="Editar"><button class="btn-modificar" onclick="datosPaquete('${paquete.ID}', '${paquete.ID_Cliente}', '${paquete.Descripcion}', '${paquete.Peso_Kg}', '${paquete.ID_Estado}', '${paquete.Destino}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
+                    <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarPaquete(${paquete.ID})"><i class="fa fa-trash"></i></button></td>
                     `;
                 document.getElementById('tablaResultados').appendChild(resultado);
             });
@@ -51,9 +51,9 @@ function listarPaquetesAlmacen(ID_Almacen) {
                     data.Paquetes.forEach(paquete => {
                         var resultado = document.createElement('tr');
                         resultado.innerHTML = `
-                            <td>${paquete.ID_Paquete}</td>
-                            <td>${paquete.ID_Estante}</td>
-                            <td>${paquete.ID_Almacen}</td>
+                            <td data-cell="ID Paquete">${paquete.ID_Paquete}</td>
+                            <td data-cell="ID Estante">${paquete.ID_Estante}</td>
+                            <td data-cell="ID Almacen">${paquete.ID_Almacen}</td>
                             `;
                         document.getElementById('tablaResultados').appendChild(resultado);
                     });
@@ -176,4 +176,235 @@ function eliminarPaquete(ID) {
             alert("No se pudo eliminar el paquete");
         }
     });
+}
+
+// Lote
+
+function crearLote(ID_Gerente, Descripcion, Peso_Kg){
+    var ID_Gerente = document.getElementById("ID_Gerente").value;
+    var Descripcion = document.getElementById("Descripcion").value;
+    var Peso_Kg = document.getElementById("Peso_Kg").value;
+    console.log(ID_Gerente, Descripcion, Peso_Kg);
+    if (!ID_Gerente || !Descripcion || !Peso_Kg) {
+        alert("Completa todos los campos obligatorios en el formulario.");
+        return;
+    }
+
+    if (ID_Gerente === undefined || Descripcion === undefined || Peso_Kg === undefined) {
+        alert("Alguno de los valores es undefined. Verifica tu formulario.");
+        return;
+    }
+
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/lotes",
+        type: "POST",
+        data: {
+            'Peso_Kg': Peso_Kg,
+            'Descripcion': Descripcion,
+            'ID_Gerente': ID_Gerente,
+        },
+        success: function (data) {
+            alert("Lote creado con éxito");
+            document.getElementById("Descripcion").value = "";
+            document.getElementById("Peso_Kg").value = "";
+            document.getElementById("ID_Gerente").value = "";
+        },
+        error: function () {
+            
+            alert("No se pudo crear el lote");
+        }
+    });
+}
+
+function listarLote(ID_Gerente){
+    var ID_Gerente = document.getElementById("ID_Gerente").value;
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/lotes",
+        type: "GET",
+        data: {
+            'ID_Gerente': ID_Gerente,
+        },
+        success: function (data) {
+            console.log(data);
+            if (data.data && Array.isArray(data.data)) {
+                document.getElementById('tablaResultados').innerHTML = '';
+                if (data.data.length > 0) {
+                    data.data.forEach(lote => {
+                        var resultado = document.createElement('tr');
+                        resultado.innerHTML = `
+                            <td data-cell="ID Lote">${lote.ID}</td>
+                            <td data-cell="Descripcion">${lote.Descripcion}</td>
+                            <td data-cell="Peso_Kg">${lote.Peso_Kg}</td>
+                            <td data-cell="ID Estado">${lote.ID_Estado}</td>
+                            `;
+                        document.getElementById('tablaResultados').appendChild(resultado);
+                    });
+                } else {
+                    console.log('No hay lotes en la respuesta.');
+                }
+            } else {
+                console.log('La propiedad "Lotes" no está presente o no es un array en la respuesta.');
+            }
+        },
+        error: function () {
+            alert("No se pudo encontrar el gerente");
+        }
+    });
+}
+
+function asignarPaqueteLote(ID_Gerente, ID_Paquete, ID_Lote){
+    var ID_Gerente = document.getElementById("ID_Gerente").value;
+    var ID_Paquete = document.getElementById("ID_Paquete").value;
+    var ID_Lote = document.getElementById("ID_Lote").value;
+    
+    console.log(ID_Gerente, ID_Paquete, ID_Lote);
+    
+    if (!ID_Gerente || !ID_Paquete || !ID_Lote) {
+        alert("Completa todos los campos obligatorios en el formulario.");
+        return;
+    }
+
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/lotes/asignar",
+        type: "POST",
+        data: {
+            'ID_Gerente': ID_Gerente,
+            'ID_Paquete': ID_Paquete,
+            'ID_Lote': ID_Lote,
+        },
+        success: function (data) {
+            alert("Paquete asignado con éxito");
+            document.getElementById("ID_Gerente").value = "";
+            document.getElementById("ID_Paquete").value = "";
+            document.getElementById("ID_Lote").value = "";
+        },
+        error: function () {
+            alert("No se pudo asignar el paquete");
+        }
+    });
+}
+
+function buscarLote(ID_Gerente, ID_Lote){
+    var ID_Gerente = document.getElementById("ID_Gerente").value;
+    var ID_Lote = document.getElementById("ID_Lote").value;
+
+    console.log(ID_Gerente, ID_Lote);
+    if (!ID_Gerente || !ID_Lote) {
+        alert("Completa todos los campos obligatorios en el formulario.");
+        return;
+    }
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/lotes/buscar",
+        type: "GET",
+        data: {
+            'ID_Gerente': ID_Gerente,
+            'ID_Lote': ID_Lote,
+        },
+        success: function (data) {
+            document.getElementById('tablaResultados');
+            tablaResultados.innerHTML = '';
+            var resultado = document.createElement('tr');
+            resultado.innerHTML = `
+                <td data-cell="ID Lote">${data.Lote.ID}</td>
+                <td data-cell="Descripcion">${data.Lote.Descripcion}</td>
+                <td data-cell="Peso_Kg">${data.Lote.Peso_Kg}</td>
+                <td data-cell="ID Estado">${data.Lote.ID_Estado}</td>
+                <td data-cell="Editar"><button class="btn-modificar" onclick="datosLote('${data.Lote.ID}', '${data.Lote.Descripcion}', '${data.Lote.Peso_Kg}', '${data.Lote.ID_Estado}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
+                <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarLote(${data.Lote.ID})"><i class="fa fa-trash"></i></button></td>
+            `;
+            document.getElementById('tablaResultados').appendChild(resultado); 
+        },
+        error: function () {
+            alert("No se pudo encontrar el lote");
+        }
+    });
+}
+
+function datosLote(ID, Descripcion, Peso_Kg, ID_Estado){
+    window.location.href = `../lote/editar.html?ID=${ID}&Descripcion=${Descripcion}&Peso_Kg=${Peso_Kg}&ID_Estado=${ID_Estado}`;
+}
+
+function editarLote(ID, Descripcion, Peso_Kg, ID_Estado){
+    var ID = document.getElementById("ID").value;
+    var Descripcion = document.getElementById("Descripcion").value;
+    var Peso_Kg = document.getElementById("Peso_Kg").value;
+    var ID_Estado = document.getElementById("ID_Estado").value;
+
+    if (!ID || !Descripcion || !Peso_Kg || !ID_Estado) {
+        alert("Completa todos los campos obligatorios en el formulario.");
+        return;
+    }
+
+    if (ID === undefined || Descripcion === undefined || Peso_Kg === undefined || ID_Estado === undefined) {
+        alert("Alguno de los valores es undefined. Verifica tu formulario.");
+        return;
+    }
+
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/lotes",
+        type: "PATCH",
+        data: {
+            'ID': ID,
+            'Descripcion': Descripcion,
+            'Peso_Kg': Peso_Kg,
+            'ID_Estado': ID_Estado,
+        },
+        success: function (data) {
+            alert("Lote actualizado con éxito");
+            window.location.href = "../lote/buscar.html";
+        },
+        error: function () {
+            alert("No se pudo actualizar el lote");
+        }
+    });
+}
+
+function eliminarLote(ID){
+    console.log(ID);
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/lotes/" + ID,
+        type: "DELETE",
+        data: {
+            'ID': ID,
+        },
+        success: function (data) {
+            alert("Lote eliminado con éxito");
+            window.location.href = "../lote/buscar.html";
+        },
+        error: function () {
+            alert("No se pudo eliminar el lote");
+        }
+    });
+}
+
+// Chofer
+
+function verChofer(ID){
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/choferes",
+        type: "GET",
+        data: {
+            'ID': ID,
+        },
+        success: function (data) {
+            document.getElementById('tablaResultados');
+            tablaResultados.innerHTML = '';
+            data.Choferes.forEach(chofer => {
+                var resultado = document.createElement('tr');
+                resultado.innerHTML = `
+                    <td data-cell="ID Chofer">${chofer.ID}</td>
+                    <td data-cell="Editar"><button class="btn-modificar" onclick="datosChofer('${chofer.ID}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
+                    <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarChofer(${chofer.ID})"><i class="fa fa-trash"></i></button></td>
+                `;
+                document.getElementById('tablaResultados').appendChild(resultado);
+            });
+        },
+        error: function () {
+            alert("No se pudo encontrar el chofer");
+        }
+    });
+}
+
+function verChoferesDisponibles(){
+    
 }

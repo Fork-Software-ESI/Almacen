@@ -57,6 +57,10 @@ input[type="submit"]:hover {
     position: relative;
 }
 
+.footer-lote{
+    position: absolute;
+}
+
 @media(max-width:890px){
     fieldset{
         padding: 20px 5px;
@@ -115,4 +119,11 @@ input[type="submit"]:hover {
         left: 0;
         z-index: 2;
     }
+}
+
+
+@media(max-width:450px){
+    .footer-lote{
+        position: relative;
+    }    
 }
