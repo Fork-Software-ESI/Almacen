@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar - Camion</title>
-    <link rel="icon" href="img/LOGO.png">
-    <link rel="stylesheet" href="../../css/crear.css">
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista - Paquete</title>
+        <link rel="stylesheet" href="../../css/crear.css">
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="icon" href="../../img/LOGO.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
 <body>
     <header>
         <nav>
@@ -26,7 +26,7 @@
             </div>
             <ul class="nav_links">
                 <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="../servicios.html">Servicios</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
             </ul>
             <div class="menu-idioma">
                 <div class="seleccionar_idioma">
@@ -46,21 +46,23 @@
 
     <main>
         <div class="container_crear">
-            <h1>Agregar - Camion</h1>
+            <h1>Registrar Paquete en estanteria - Paquete</h1>
             <div class="formulario">
                 <form action="">
-                    <fieldset>
-                        <label for="matricula">Matricula</label>
-                        <input type="text" id="matricula" name="matricula" required>
-                        <br>
-                        <label for="peso">Peso Maximo</label>
-                        <input type="number" id="peso" name="peso" required>
-                        <br>
-                        <label for="plataforma">Plataforma</label>
-                        <input type="number" id="plataforma" name="plataforma" required>
-                        <br>
-                        <input type="submit">
-                    </fieldset>
+                    <label for="ID_Funcionario">ID del Funcionario: </label>
+                    <input type="number" name="ID_Funcionario" id="ID_Funcionario" required>
+                    <br><br>
+                    <label for="ID_Paquete">ID del Paquete: </label>
+                    <input type="number" name="ID_Paquete" id="ID_Paquete" required>
+                    <br><br>
+                    <label for="ID_Estante">ID del Estante: </label>
+                    <input type="number" name="ID_Estante" id="ID_Estante" required>
+                    <br><br>
+                    <label for="ID_Almacen">ID del Almacen: </label>
+                    <input type="number" name="ID_Almacen" id="ID_Almacen" required>
+                    <br><br>
+                    <button class="btn-a" type="button" onclick="registrarPaqueteEstante()">Listar Paquetes</button>
+                    <br><br>
                 </form>
             </div>
         </div>

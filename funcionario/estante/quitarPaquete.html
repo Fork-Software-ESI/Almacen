@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista - Lote</title>
-    <link rel="stylesheet" href="../../css/lista.css">
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/tabla.css">
-    <link rel="icon" href="img/LOGO.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quitar Paquete - Estante</title>
+        <link rel="stylesheet" href="../../css/crear.css">
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="icon" href="../../img/LOGO.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
 <body>
     <header>
         <nav>
@@ -46,23 +45,16 @@
     </header>
 
     <main>
-        <div class="contenedor_lista">
-            <h2>Lista - Lotes</h2>
-            <div class="lista">
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Descripcion</th>
-                            <th>Peso en Kg</th>
-                            <th>Estado</th>
-                            <th>Estado entrega</th>
-                            <th colspan="2">Accion</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaResultados">
-                    </tbody>
-                </table>
+        <div class="container_crear">
+            <h1>Quitar Paquete - Estante</h1>
+            <div class="formulario">
+                <form action="">
+                    <label for="ID_Paquete">ID del Paquete: </label>
+                    <input type="number" name="ID_Paquete" id="ID_Paquete" required>
+                    <br><br>
+                    <button class="btn-a" type="button" onclick="quitarPaqueteDeEstante()">Listar Paquetes</button>
+                    <br><br>
+                </form>
             </div>
         </div>
     </main>

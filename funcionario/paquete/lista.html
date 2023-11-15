@@ -48,97 +48,23 @@
     <main>
         <div class="contenedor_lista">
             <h2>Lista - Paquete</h2>
+            <form action="">
+                <label for="ID_Funcionario" style="color: white;">ID del Funcionario: </label>
+                <input type="number" name="IDFuncionarion" id="ID_Funcionario" required><br><br>
+                <button class="btn-a" type="button" onclick="listarPaquetesAlmacen()">Listar Paquetes</button>
+                <br><br>
+            </form>
             <div class="lista">
                 <table class="tabla">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Descripcion</th>
-                            <th>Peso en Kg</th>
-                            <th>Destino</th>
-                            <th>Estado</th>
-                            <th>Estado entrega</th>
-                            <th colspan="2">Accion</th>
+                            <th>ID_Paquete</th>
+                            <th>ID_Estante</th>
+                            <th>ID_Almacen</th>
                         </tr>
                     </thead>
-                    <tr>
-                        <td data-cell="ID">...</td>
-                        <td data-cell="Descripcion">...</td>
-                        <td data-cell="Peso en Kg">...</td>
-                        <td data-cell="Destino">...</td>
-                        <td data-cell="Estado">
-                            <select>
-                                <option value="creado">Creado</option>
-                                <option value="preparado">Preparado</option>
-                                <option value="cargado">Cargado</option>
-                            </select>
-                        </td>
-                        <td data-cell="Estado entrega">
-                            <select>
-                                <option value="almacen">Almacen</option>
-                                <option value="transito">Transito</option>
-                                <option value="entregado">Entregado</option>
-                            </select>
-                        </td>
-                        <td data-cell="Modificar">
-                            <button class="btn-modificar"><a href="editar.html" style="color: black;"><i class="fa fa-pencil"></i></a></button>
-                        </td>
-                        <td data-cell="Eliminar">
-                            <button class="btn-eliminar"><i class="fa fa-trash"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-cell="ID">...</td>
-                        <td data-cell="Descripcion">...</td>
-                        <td data-cell="Peso en Kg">...</td>
-                        <td data-cell="Destino">...</td>
-                        <td data-cell="Estado">
-                            <select>
-                                <option value="creado">Creado</option>
-                                <option value="preparado">Preparado</option>
-                                <option value="cargado">Cargado</option>
-                            </select>
-                        </td>
-                        <td data-cell="Estado entrega">
-                            <select>
-                                <option value="almacen">Almacen</option>
-                                <option value="transito">Transito</option>
-                                <option value="entregado">Entregado</option>
-                            </select>
-                        </td>
-                        <td data-cell="Modificar">
-                            <button class="btn-modificar"><a href="editar.html" style="color: black;"><i class="fa fa-pencil"></i></a></button>
-                        </td>
-                        <td data-cell="Eliminar">
-                            <button class="btn-eliminar"><i class="fa fa-trash"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-cell="ID">...</td>
-                        <td data-cell="Descripcion">...</td>
-                        <td data-cell="Peso en Kg">...</td>
-                        <td data-cell="Destino">...</td>
-                        <td data-cell="Estado">
-                            <select>
-                                <option value="creado">Creado</option>
-                                <option value="preparado">Preparado</option>
-                                <option value="cargado">Cargado</option>
-                            </select>
-                        </td>
-                        <td data-cell="Estado entrega">
-                            <select>
-                                <option value="almacen">Almacen</option>
-                                <option value="transito">Transito</option>
-                                <option value="entregado">Entregado</option>
-                            </select>
-                        </td>
-                        <td data-cell="Modificar">
-                            <button class="btn-modificar"><a href="editar.html" style="color: black;"><i class="fa fa-pencil"></i></a></button>
-                        </td>
-                        <td data-cell="Eliminar">
-                            <button class="btn-eliminar"><i class="fa fa-trash"></i></button>
-                        </td>
-                    </tr>
+                    <tbody id="tablaResultados">
+                    </tbody>
                 </table>
             </div>
         </div>
