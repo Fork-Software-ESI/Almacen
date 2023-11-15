@@ -525,6 +525,39 @@ function verCamionesSinChofer(ID, Matricula, PesoMaximoKg){
     });
 }
 
+function verCamionesDisponibles(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/camiones/disponibles",
+        type: "GET",
+        data: {
+            'ID_Chofer': ID_Chofer,
+            'ID_Camion': ID_Camion,
+            'Fecha_Hora_Inicio': Fecha_Hora_Inicio,
+            'ID_Estado': ID_Estado,
+        },
+        success: function (data) {
+            document.getElementById('tablaResultados');
+            tablaResultados.innerHTML = '';
+            data['Camiones disponibles'].forEach(camion => {
+                var resultado = document.createElement('tr');
+                resultado.innerHTML = `
+                    <td data-cell="ID Camion">${camion.ID_Chofer}</td>
+                    <td data-cell="Matricula">${camion.ID_Camion}</td>
+                    <td data-cell="PesoMaximoKg">${camion.Fecha_Hora_Inicio}</td>
+                    <td data-cell="PesoMaximoKg">${camion.ID_Estado}</td>
+
+                    <td data-cell="Editar"><button class="btn-modificar" onclick="datosCamion('${camion.ID_Chofer}', '${camion.ID_Camion}', '${camion.Fecha_Hora_Inicio}' , '${camion.ID_Estado}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
+                    <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarCamion(${camion.ID_Chofer})"><i class="fa fa-trash"></i></button></td>
+                `;
+                document.getElementById('tablaResultados').appendChild(resultado);
+            });
+        },
+        error: function () {
+            alert("No se pudo encontrar el chofer");
+        }
+    });
+}
+
 function asignarChoferCamion(ID_Chofer, ID_Camion){
     var ID_Chofer = document.getElementById("ID_Chofer").value;
     var ID_Camion = document.getElementById("ID_Camion").value;
@@ -558,12 +591,55 @@ function asignarChoferCamion(ID_Chofer, ID_Camion){
     });
 }
 
-function asignarLoteCamion(){
+function asignarLoteCamion(ID_Lote, ID_Camion){                     //no funca
+    var ID_Lote = document.getElementById("ID_Lote").value;
+    var ID_Camion = document.getElementById("ID_Camion").value;
+    console.log(ID_Lote, ID_Camion);
+    if (!ID_Lote || !ID_Camion) {
+        alert("Completa todos los campos obligatorios en el formulario.");
+        return;
+    }
 
+    if(ID_Lote === undefined || ID_Camion === undefined){
+        alert("Alguno de los valores es undefined. Verifica tu formulario.");
+        return;
+    }
+
+    var data;
+
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/camiones/lote",
+        type: "POST",
+        data: {
+            'ID_Lote': ID_Lote,
+            'ID_Camion': ID_Camion,
+        },
+        success: function (data) {
+            alert("Lote asignado con éxito");
+            document.getElementById("ID_Lote").value = "";
+            document.getElementById("ID_Camion").value = "";
+            if (data.hasOwnProperty('error')) {
+                alert("Error: " + data.error);
+            } else {
+                alert("Lote asignado con éxito");
+            }
+        },
+        error: function (jqXHR) {
+            var responseData = jqXHR.responseJSON;
+            if (responseData && responseData.hasOwnProperty('error')) {
+                handleErrorResponse(responseData);
+            }
+            alert("No se pudo asignar el lote");
+        }
+    });
+
+    function handleErrorResponse(responseData) {
+        alert("Error:" + responseData.error);
+    }
 }
 
 function verCamionesEnPlataformas(){
-
+    // no funca
 }
 
 function verCamioneEnTransito(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
@@ -615,6 +691,32 @@ function verCamioneEnTransito(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado
     });
 }
 
-function marcarCamionComoPreparado(){
+function marcarCamionComoPreparado(ID_Chofer, ID_Camion){
+    var ID_Chofer = document.getElementById("ID_Chofer").value;
+    var ID_Camion = document.getElementById("ID_Camion").value;
+    console.log(ID_Chofer, ID_Camion);
 
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/camiones",
+        type: "PATCH",
+        data: {
+            'ID_Chofer': ID_Chofer,
+            'ID_Camion': ID_Camion,
+        },
+        success: function (data) {
+            alert("Camion marcado como preparado con éxito");
+            document.getElementById("ID_Chofer").value = "";
+            document.getElementById("ID_Camion").value = "";
+        },
+        error: function (jqXHR) {
+            var responseData = jqXHR.responseJSON;
+            if (responseData && responseData.hasOwnProperty('error')) {
+                handleErrorResponse(responseData);
+            }
+            alert("No se pudo marcar el camion como preparado");
+        }
+    });
+    function handleErrorResponse(responseData) {
+        alert("Error:" + responseData.error);
+    }
 }

@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sin Chofer - Camiones</title>
-    <link rel="stylesheet" href="../css/lista.css">
+    <title>Marcar como preparado - Camion</title>
+    <link rel="stylesheet" href="../css/crear.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/tabla.css">
     <link rel="icon" href="../img/LOGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
@@ -46,27 +45,24 @@
     </header>
 
     <main>
-        <div class="contenedor_lista">
-            <h2>Sin Chofer - Camiones</h2>
-            <div class="lista">
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th>ID Chofer</th>
-                            <th>ID Camion</th>
-                            <th>Fecha Hora Inicio</th>
-                            <th>ID Estado</th>
-                            <th colspan="2">Accion</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaResultados">
-                    </tbody>
-                </table>
+        <div class="container_crear">
+            <h1>Marcar como preparado - Camion</h1>
+            <div class="formulario">
+                <form action="">
+                    <label for="ID_Chofer">ID del Chofer: </label>
+                    <input type="number" name="ID_Chofer" id="ID_Chofer" required>
+                    <br><br>
+                    <label for="ID_Camion">ID del Camion: </label>
+                    <input type="number" name="ID_Camion" id="ID_Camion" required>
+                    <br><br>
+                    <button class="btn-a" type="button" onclick="marcarCamionComoPreparado()">Listar Paquetes</button>
+                    <br><br>
+                </form>
             </div>
         </div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer-lote">
         <div class="container-footer">
             <div class="empresa-container espacio">
                 <h3>Empresa:</h3>
@@ -99,10 +95,5 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../js/gerente.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            verCamionesDisponibles();
-        });
-    </script>
 </body>
 </html>
