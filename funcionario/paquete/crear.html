@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar - Paquete</title>
-    <link rel="stylesheet" href="../css/editar.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" href="../img/LOGO.png">
+    <title>Crear - Paquete</title>
+    <link rel="icon" href="img/LOGO.png">
+    <link rel="stylesheet" href="../../css/crear.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -20,16 +20,14 @@
                 <i class="fa fa-bars"></i>
             </label>
             <div class="container_logo">
-                <a href="../index.html">
-                    <img class="logo" src="../img/LOGO.png" alt="logo">
+                <a href="../../index.html">
+                    <img class="logo" src="../../img/LOGO.png" alt="logo">
                 </a>
             </div>
             <ul class="nav_links">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="lista.html">Lista Paquete</a></li>
+                <li><a href="../../index.html">Inicio</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
             </ul>
-            
             <div class="menu-idioma">
                 <div class="seleccionar_idioma">
                     <p class="idioma">Español</p>
@@ -45,37 +43,26 @@
             </div>
         </nav>
     </header>
-    
+
     <main>
-        <h1 style="text-align: center; color: white;">Editar Paquete</h1>
-        
-        <div class="formulario">
-            <form action="">
-                <fieldset>
-                    <ul>
-                        <li class="li-form">
-                            <label class="label-form" for="descripcion">Descripcion:</label>
-                            <input type="text">
-                        </li>
-                        <li class="li-form">
-                            <label class="label-form" for="pesoKg">Peso en Kg:</label>
-                            <input type="number">
-                        </li>
-                        <li class="li-form">
-                            <label class="label-form" for="destino">Destino:</label>
-                            <input type="text">
-                        </li>
-                        <li class="li-form">
-                            <label class="label-form" for="estado">Estado:</label>
-                            <input type="text">
-                        </li>
-                        <li class="li-form">
-                            <input type="submit" value="Editar">        
-                        </li>
-                    </ul>
-                    
-                </fieldset>
-            </form>
+        <div class="container_crear">
+            <h1>Crear - Paquete</h1>
+            <div class="formulario">
+                <form action="">
+                    <fieldset>
+                        <label for="descripcion">Descripción:</label>
+                        <input type="text" id="descripcion" name="descripcion" required>
+                        <br>
+                        <label for="peso">Peso en kg:</label>
+                        <input type="number" id="peso" name="peso" step="0.01" required>
+                        <br>
+                        <label for="destino">Destino:</label>
+                        <input type="text" id="destino" name="destino" required>
+                        <br>
+                        <input type="submit">
+                    </fieldset>
+                </form>
+            </div>
         </div>
     </main>
 
@@ -84,7 +71,7 @@
             <div class="empresa-container espacio">
                 <h3>Empresa:</h3>
                 <ul class="empresa">
-                    <li><a href="../../index.html/#sobre_nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#sobre_nosotros">Sobre Nosotros</a></li>
                     <li><a href="../servicios.html">Nuestros Servicios</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
@@ -110,6 +97,8 @@
             </div>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../../js/funcionario.js"></script>
     <script src="../../js/script.js"></script>
 </body>
 </html>

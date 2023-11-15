@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar - Camion</title>
-    <link rel="icon" href="img/LOGO.png">
-    <link rel="stylesheet" href="../../css/crear.css">
+    <title>Lista - Paquete</title>
+    <link rel="stylesheet" href="../../css/lista.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/tabla.css">
+    <link rel="icon" href="../img/LOGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -26,7 +27,7 @@
             </div>
             <ul class="nav_links">
                 <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="../servicios.html">Servicios</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
             </ul>
             <div class="menu-idioma">
                 <div class="seleccionar_idioma">
@@ -45,24 +46,31 @@
     </header>
 
     <main>
-        <div class="container_crear">
-            <h1>Agregar - Camion</h1>
-            <div class="formulario">
-                <form action="">
-                    <fieldset>
-                        <label for="matricula">Matricula</label>
-                        <input type="text" id="matricula" name="matricula" required>
-                        <br>
-                        <label for="peso">Peso Maximo</label>
-                        <input type="number" id="peso" name="peso" required>
-                        <br>
-                        <label for="plataforma">Plataforma</label>
-                        <input type="number" id="plataforma" name="plataforma" required>
-                        <br>
-                        <input type="submit">
-                    </fieldset>
-                </form>
-            </div>
+        <div class="contenedor_lista">
+            <h2>Buscar - Paquete</h2>
+            <form action="">
+                <label for="ID_Cliente" style="color: white;">ID_Cliente:</label>
+                <input type="text" name="ID_Cliente" id="ID_Cliente">
+                <br><br>
+                <button type="button" onclick="buscarPaquete()" style="color: black;">Buscar Paquete</button>
+            </form>
+            <br><br>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>ID_Cliente</th>
+                            <th>Descripcion</th>
+                            <th>Peso_Kg</th>
+                            <th>ID_Estado</th>
+                            <th>Destino</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaResultados">
+                    </tbody>
+                </table>
+            </divstyle=>    
         </div>
     </main>
 
@@ -97,6 +105,7 @@
             </div>
         </div>
     </footer>
-    <script src="../../js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../../js/funcionario.js"></script>
 </body>
 </html>

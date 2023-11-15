@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear - Lote</title>
+    <title>Agregar - Camion</title>
     <link rel="icon" href="img/LOGO.png">
-    <link rel="stylesheet" href="../css/crear.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/crear.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -20,13 +20,13 @@
                 <i class="fa fa-bars"></i>
             </label>
             <div class="container_logo">
-                <a href="../index.html">
-                    <img class="logo" src="../img/LOGO.png" alt="logo">
+                <a href="../../index.html">
+                    <img class="logo" src="../../img/LOGO.png" alt="logo">
                 </a>
             </div>
             <ul class="nav_links">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../servicios.html">Servicios</a></li>
             </ul>
             <div class="menu-idioma">
                 <div class="seleccionar_idioma">
@@ -46,15 +46,18 @@
 
     <main>
         <div class="container_crear">
-            <h1>Crear - Lote</h1>
+            <h1>Agregar - Camion</h1>
             <div class="formulario">
                 <form action="">
                     <fieldset>
-                        <label for="descripcion">Descripción:</label>
-                        <input type="text" id="descripcion" name="descripcion" required>
+                        <label for="matricula">Matricula</label>
+                        <input type="text" id="matricula" name="matricula" required>
                         <br>
-                        <label for="peso">Peso en kg:</label>
-                        <input type="number" id="peso" name="peso" step="0.01" required>
+                        <label for="peso">Peso Maximo</label>
+                        <input type="number" id="peso" name="peso" required>
+                        <br>
+                        <label for="plataforma">Plataforma</label>
+                        <input type="number" id="plataforma" name="plataforma" required>
                         <br>
                         <input type="submit">
                     </fieldset>
@@ -94,6 +97,8 @@
             </div>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../../js/funcionario.js"></script>
     <script src="../../js/script.js"></script>
 </body>
 </html>
