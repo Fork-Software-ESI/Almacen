@@ -405,6 +405,62 @@ function verChofer(ID){
     });
 }
 
-function verChoferesDisponibles(){
-    
+function verChoferesDisponibles(ID){
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/choferes/disponibles",
+        type: "GET",
+        data: {
+            'ID': ID,
+        },
+        success: function (data) {
+            document.getElementById('tablaResultados');
+            tablaResultados.innerHTML = '';
+            data.Choferes.forEach(chofer => {
+                var resultado = document.createElement('tr');
+                resultado.innerHTML = `
+                    <td data-cell="ID Chofer">${chofer.ID}</td>
+                    <td data-cell="Editar"><button class="btn-modificar" onclick="datosChofer('${chofer.ID}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
+                    <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarChofer(${chofer.ID})"><i class="fa fa-trash"></i></button></td>
+                `;
+                document.getElementById('tablaResultados').appendChild(resultado);
+            });
+        },
+        error: function () {
+            alert("No se pudo encontrar el chofer");
+        }
+    });
+}
+
+ChoferesCamiones
+
+function listaChoferCamion(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/choferes/ocupados",
+        type: "GET",
+        data: {
+            'ID_Chofer': ID_Chofer,
+            'ID_Camion': ID_Camion,
+            'Fecha_Hora_Inicio': Fecha_Hora_Inicio,
+            'ID_Estado': ID_Estado,
+        },
+        success: function (data) {
+            document.getElementById('tablaResultados');
+            tablaResultados.innerHTML = '';
+            data.ChoferesCamiones.forEach(choferCamion => {
+                var resultado = document.createElement('tr');
+                resultado.innerHTML = `
+                    <td data-cell="ID Chofer">${choferCamion.ID_Chofer}</td>
+                    <td data-cell="ID Camion">${choferCamion.ID_Camion}</td>
+                    <td data-cell="Fecha_Hora_Inicio">${choferCamion.Fecha_Hora_Inicio}</td>
+                    <td data-cell="ID Estado">${choferCamion.ID_Estado}</td>
+                    <td data-cell="Editar"><button class="btn-modificar" onclick="datosChoferCamion('${choferCamion.ID_Chofer}', '${choferCamion.ID_Camion}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
+                    <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarChoferCamion(${choferCamion.ID_Chofer}, ${choferCamion.ID_Camion})"><i class="fa fa-trash"></i></button></td>
+                `;
+                document.getElementById('tablaResultados').appendChild(resultado);
+            });
+        },
+        error: function () {
+            alert("No se pudo encontrar el chofer");
+        }
+    });
 }
