@@ -21,7 +21,7 @@ function buscarPaquete(ID_Cliente){
                     <td>${paquete.ID_Estado}</td>
                     <td>${paquete.Destino}</td>
                     <td><button class="btn-a" onclick="datosPaquete('${paquete.ID}', '${paquete.ID_Cliente}', '${paquete.Descripcion}', '${paquete.Peso_Kg}', '${paquete.ID_Estado}', '${paquete.Destino}')" style="color: black;">Editar</button></td>
-                    <td><button class="btn-a" onclick="datosPaquete(${paquete.ID_Paquete})">Eliminar</button></td>
+                    <td><button class="btn-a" onclick="eliminarPaquete(${paquete.ID})">Eliminar</button></td>
                     `;
                 document.getElementById('tablaResultados').appendChild(resultado);
             });
@@ -157,6 +157,23 @@ function editarPaquete(ID, ID_Cliente, Descripcion, Peso_Kg, ID_Estado, Calle, N
         },
         error: function () {
             alert("No se pudo actualizar el paquete");
+        }
+    });
+}
+
+function eliminarPaquete(ID) {
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/paquetes/" + ID,
+        type: "DELETE",
+        data: {
+            'ID': ID,
+        },
+        success: function (data) {
+            alert("Paquete eliminado con éxito");
+            window.location.href = "../paquete/buscar.html";
+        },
+        error: function () {
+            alert("No se pudo eliminar el paquete");
         }
     });
 }
