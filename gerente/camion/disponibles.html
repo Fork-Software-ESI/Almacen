@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear - Paquete</title>
-    <link rel="icon" href="../img/LOGO.png">
-    <link rel="stylesheet" href="../css/crear.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Sin Chofer - Camiones</title>
+    <link rel="stylesheet" href="../../css/lista.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/tabla.css">
+    <link rel="icon" href="../../img/LOGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -20,12 +21,12 @@
                 <i class="fa fa-bars"></i>
             </label>
             <div class="container_logo">
-                <a href="../index.html">
-                    <img class="logo" src="../img/LOGO.png" alt="logo">
+                <a href="../../index.html">
+                    <img class="logo" src="../../img/LOGO.png" alt="logo">
                 </a>
             </div>
             <ul class="nav_links">
-                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../../index.html">Inicio</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
             </ul>
             <div class="menu-idioma">
@@ -45,33 +46,21 @@
     </header>
 
     <main>
-        <div class="container_crear">
-            <h1>Crear - Paquete</h1>
-            <div class="formulario">
-                <form action="">
-                    <label for="ID_Gerente">ID del gerente: </label>
-                    <input type="number" id="ID_Gerente" name="ID_Gerente" required>
-                    <br>
-                    <label for="Descripcion">Descripción: </label>
-                    <input type="text" id="Descripcion" name="Descripcion" required>
-                    <br>
-                    <label for="Peso_Kg">Peso en kg: </label>
-                    <input type="number" id="Peso_Kg" name="Peso_Kg" step="0.01" required>
-                    <br>
-                    <label for="ID_Cliente">ID del Cliente: </label>
-                    <input type="number" id="ID_Cliente" name="ID_Cliente" required>
-                    <br>
-                    <label for="Calle">Calle: </label>
-                    <input type="text" id="Calle" name="Calle" required>
-                    <br>
-                    <label for="Numero_Puerta">Número de puerta: </label>
-                    <input type="number" id="Numero_Puerta" name="Numero_Puerta" required>
-                    <br>
-                    <label for="Ciudad">Ciudad: </label>
-                    <input type="text" id="Ciudad" name="Ciudad" required>
-                    <br><br>
-                    <button class="btn-a" type="button" onclick="crearPaquete()">Crear Paquete</button>
-                </form>
+        <div class="contenedor_lista">
+            <h2>Disponibles - Camiones</h2>
+            <div class="lista">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>ID Chofer</th>
+                            <th>ID Camion</th>
+                            <th>Fecha Hora Inicio</th>
+                            <th>ID Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaResultados">
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
@@ -108,6 +97,11 @@
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../js/gerente.js"></script>
+    <script src="../../js/gerente.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            verCamionesDisponibles();
+        });
+    </script>
 </body>
 </html>

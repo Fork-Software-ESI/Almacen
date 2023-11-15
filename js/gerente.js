@@ -216,7 +216,7 @@ function crearLote(ID_Gerente, Descripcion, Peso_Kg){
     });
 }
 
-function listarLote(ID_Gerente){
+function listarLote(ID_Gerente) {
     var ID_Gerente = document.getElementById("ID_Gerente").value;
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/lotes",
@@ -226,24 +226,33 @@ function listarLote(ID_Gerente){
         },
         success: function (data) {
             console.log(data);
-            if (data.data && Array.isArray(data.data)) {
+            if (data.data) {
                 document.getElementById('tablaResultados').innerHTML = '';
-                if (data.data.length > 0) {
+                if (Array.isArray(data.data)) {
                     data.data.forEach(lote => {
                         var resultado = document.createElement('tr');
                         resultado.innerHTML = `
                             <td data-cell="ID Lote">${lote.ID}</td>
                             <td data-cell="Descripcion">${lote.Descripcion}</td>
-                            <td data-cell="Peso_Kg">${lote.Peso_Kg}</td>
                             <td data-cell="ID Estado">${lote.ID_Estado}</td>
-                            `;
+                        `;
+                        document.getElementById('tablaResultados').appendChild(resultado);
+                    });
+                } else if (typeof data.data === 'object') {
+                    Object.values(data.data).forEach(lote => {
+                        var resultado = document.createElement('tr');
+                        resultado.innerHTML = `
+                            <td data-cell="ID Lote">${lote.ID}</td>
+                            <td data-cell="Descripcion">${lote.Descripcion}</td>
+                            <td data-cell="ID Estado">${lote.ID_Estado}</td>
+                        `;
                         document.getElementById('tablaResultados').appendChild(resultado);
                     });
                 } else {
-                    console.log('No hay lotes en la respuesta.');
+                    console.log('La propiedad "data" no es un array ni un objeto en la respuesta.');
                 }
             } else {
-                console.log('La propiedad "Lotes" no está presente o no es un array en la respuesta.');
+                console.log('La propiedad "data" no está presente en la respuesta.');
             }
         },
         error: function () {
@@ -251,6 +260,7 @@ function listarLote(ID_Gerente){
         }
     });
 }
+
 
 function asignarPaqueteLote(ID_Gerente, ID_Paquete, ID_Lote){
     var ID_Gerente = document.getElementById("ID_Gerente").value;
@@ -513,8 +523,6 @@ function verCamionesSinChofer(ID, Matricula, PesoMaximoKg){
                     <td data-cell="ID Camion">${camion.ID}</td>
                     <td data-cell="Matricula">${camion.Matricula}</td>
                     <td data-cell="PesoMaximoKg">${camion.PesoMaximoKg}</td>
-                    <td data-cell="Editar"><button class="btn-modificar" onclick="datosCamion('${camion.ID}', '${camion.Matricula}', '${camion.PesoMaximoKg}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
-                    <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarCamion(${camion.ID})"><i class="fa fa-trash"></i></button></td>
                 `;
                 document.getElementById('tablaResultados').appendChild(resultado);
             });
@@ -545,9 +553,6 @@ function verCamionesDisponibles(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Esta
                     <td data-cell="Matricula">${camion.ID_Camion}</td>
                     <td data-cell="PesoMaximoKg">${camion.Fecha_Hora_Inicio}</td>
                     <td data-cell="PesoMaximoKg">${camion.ID_Estado}</td>
-
-                    <td data-cell="Editar"><button class="btn-modificar" onclick="datosCamion('${camion.ID_Chofer}', '${camion.ID_Camion}', '${camion.Fecha_Hora_Inicio}' , '${camion.ID_Estado}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
-                    <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarCamion(${camion.ID_Chofer})"><i class="fa fa-trash"></i></button></td>
                 `;
                 document.getElementById('tablaResultados').appendChild(resultado);
             });

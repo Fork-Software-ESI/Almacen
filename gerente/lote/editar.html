@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear - Lote</title>
-    <link rel="icon" href="../img/LOGO.png">
-    <link rel="stylesheet" href="../css/crear.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Editar - Lote</title>
+    <link rel="stylesheet" href="../../css/editar.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../img/LOGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -20,14 +20,16 @@
                 <i class="fa fa-bars"></i>
             </label>
             <div class="container_logo">
-                <a href="../index.html">
-                    <img class="logo" src="../img/LOGO.png" alt="logo">
+                <a href="../../index.html">
+                    <img class="logo" src="../../img/LOGO.png" alt="logo">
                 </a>
             </div>
             <ul class="nav_links">
-                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="lista.html">Lista Paquete</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
             </ul>
+            
             <div class="menu-idioma">
                 <div class="seleccionar_idioma">
                     <p class="idioma">Español</p>
@@ -43,33 +45,39 @@
             </div>
         </nav>
     </header>
-
+    
     <main>
-        <div class="container_crear">
-            <h1>Crear - Lote</h1>
-            <div class="formulario">
-                <form action="">
-                    <label for="ID_Gerente">ID del gerente: </label>
-                    <input type="number" id="ID_Gerente" name="ID_Gerente" required>
-                    <br>
-                    <label for="Descripcion">Descripción:</label>
-                    <input type="text" id="Descripcion" name="Descripcion" required>
-                    <br>
-                    <label for="Peso_Kg">Peso en kg:</label>
-                    <input type="number" id="Peso_Kg" name="Peso_Kg" step="0.01" required>
-                    <br><br>
-                    <button class="btn-a" type="button" onclick="crearLote()">Crear Lote</button>    
-                </form>
-            </div>
+        <h1 style="text-align: center; color: white;">Editar Lote</h1>
+        <div class="formulario">
+            <form action="">
+                <label class="label-form" for="ID">ID del Lote: </label><br>
+                <input type="number" id="ID" readonly>
+                <br><br>
+                <label class="label-form" for="Descripcion">Descripcion: </label><br>
+                <input type="text" id="Descripcion">
+                <br><br>
+                <label class="label-form" for="Peso_Kg">Peso en Kg: </label><br>
+                <input type="number" id="Peso_Kg">
+                <br><br>
+                <label class="label-form" for="ID_Estado">ID de Estado: </label><br>
+                <select class="ID_Estado" name="" id="ID_Estado">
+                    <option value="1">1- Pendiente</option>
+                    <option value="2">2- Cargado</option>
+                    <option value="3">3- Entregado</option>
+                </select>
+                <br><br>
+                <button class="btn-a" type="button" onclick="editarLote()">Actualizar Lote</button>   
+                <br><br>
+            </form>
         </div>
     </main>
 
-    <footer class="footer-lote">
+    <footer class="footer">
         <div class="container-footer">
             <div class="empresa-container espacio">
                 <h3>Empresa:</h3>
                 <ul class="empresa">
-                    <li><a href="#sobre_nosotros">Sobre Nosotros</a></li>
+                    <li><a href="../../index.html/#sobre_nosotros">Sobre Nosotros</a></li>
                     <li><a href="../servicios.html">Nuestros Servicios</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
@@ -95,7 +103,22 @@
             </div>
         </div>
     </footer>
+    
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../js/gerente.js"></script>
+    <script src="../../js/gerente.js"></script>
+    <script>
+        window.onload = function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            var ID = urlParams.get('ID');
+            var Descripcion = urlParams.get('Descripcion');
+            var Peso_Kg = urlParams.get('Peso_Kg');
+            var ID_Estado = urlParams.get('ID_Estado');
+
+            document.getElementById("ID").value = ID;
+            document.getElementById("Descripcion").value = Descripcion;
+            document.getElementById("Peso_Kg").value = Peso_Kg;
+            document.getElementById("ID_Estado").value = ID_Estado;
+        };
+    </script>
 </body>
 </html>

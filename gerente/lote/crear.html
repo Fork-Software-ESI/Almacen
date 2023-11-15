@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista - Lote</title>
-    <link rel="stylesheet" href="../css/lista.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/tabla.css">
-    <link rel="icon" href="img/LOGO.png">
+    <title>Crear - Lote</title>
+    <link rel="icon" href="../../img/LOGO.png">
+    <link rel="stylesheet" href="../../css/crear.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -21,12 +20,12 @@
                 <i class="fa fa-bars"></i>
             </label>
             <div class="container_logo">
-                <a href="../index.html">
-                    <img class="logo" src="../img/LOGO.png" alt="logo">
+                <a href="../../index.html">
+                    <img class="logo" src="../../img/LOGO.png" alt="logo">
                 </a>
             </div>
             <ul class="nav_links">
-                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../../index.html">Inicio</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
             </ul>
             <div class="menu-idioma">
@@ -46,33 +45,26 @@
     </header>
 
     <main>
-        <div class="contenedor_lista">
-            <h2>Lista - Lotes</h2>
-            <form action="">
-                <label for="ID_Gerente" style="color: white;">ID del gerente: </label>
-                <input type="number" id="ID_Gerente" name="ID_Gerente" required>
-                <br><br>
-                <button class="btn-a" type="button" onclick="listarLote()">Listar Lotes</button>
-                <br><br>
-            </form>
-            <div class="lista">
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th>ID Lote</th>
-                            <th>Descripcion</th>
-                            <th>Peso en Kg</th>
-                            <th>ID Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaResultados">
-                    </tbody>
-                </table>
+        <div class="container_crear">
+            <h1>Crear - Lote</h1>
+            <div class="formulario">
+                <form action="">
+                    <label for="ID_Gerente">ID del gerente: </label>
+                    <input type="number" id="ID_Gerente" name="ID_Gerente" required>
+                    <br>
+                    <label for="Descripcion">Descripción:</label>
+                    <input type="text" id="Descripcion" name="Descripcion" required>
+                    <br>
+                    <label for="Peso_Kg">Peso en kg:</label>
+                    <input type="number" id="Peso_Kg" name="Peso_Kg" step="0.01" required>
+                    <br><br>
+                    <button class="btn-a" type="button" onclick="crearLote()">Crear Lote</button>    
+                </form>
             </div>
         </div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer-lote">
         <div class="container-footer">
             <div class="empresa-container espacio">
                 <h3>Empresa:</h3>
@@ -104,6 +96,6 @@
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../js/gerente.js"></script>
+    <script src="../../js/gerente.js"></script>
 </body>
 </html>
