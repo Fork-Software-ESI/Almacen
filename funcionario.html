@@ -46,115 +46,29 @@
 
     <main>
         <div class="contenedor">
-            <h1 style="color: white; margin-bottom: 70px; text-align: center;">- Funcionario -</h1>
-            <div class="contenedor_lista tarea_paquete">
-                <h2>- Paquete -</h2>
-                <div class="paquete">
-                    <table class="tabla">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Descripcion</th>
-                                <th>Peso en Kg</th>
-                                <th>ID Lote</th>
-                                <th>Estado</th>
-                            </tr>
-                        </thead>
-                        <tr>
-                            <td data-cell="ID">...</td>
-                            <td data-cell="Descripcion">...</td>
-                            <td data-cell="Peso en Kg">...</td>
-                            <td data-cell="ID Lote">...</td>
-                            <td data-cell="Estado">
-                                <select>
-                                    <option value="preparado">Pendiente</option>
-                                    <option value="preparado">Preparado</option>
-                                    <option value="cargado">Cargado</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td data-cell="ID">...</td>
-                            <td data-cell="Descripcion">...</td>
-                            <td data-cell="Peso en Kg">...</td>
-                            <td data-cell="ID Lote">...</td>
-                            <td data-cell="Estado">
-                                <select>
-                                    <option value="preparado">Pendiente</option>
-                                    <option value="preparado">Preparado</option>
-                                    <option value="cargado">Cargado</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td data-cell="ID">...</td>
-                            <td data-cell="Descripcion">...</td>
-                            <td data-cell="Peso en Kg">...</td>
-                            <td data-cell="ID Lote">...</td>
-                            <td data-cell="Estado">
-                                <select>
-                                    <option value="preparado">Pendiente</option>
-                                    <option value="preparado">Preparado</option>
-                                    <option value="cargado">Cargado</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="contenedor_lista tarea_lote">
-                <h2>- Lotes -</h2>
-                <div class="lote">
-                    <div class="paquete">
-                        <table class="tabla">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Descripcion</th>
-                                    <th>Peso en Kg</th>
-                                    <th>Estado</th>
-                                </tr>
-                            </thead>
-                            <tr>
-                                <td data-cell="ID">...</td>
-                                <td data-cell="Descripcion">...</td>
-                                <td data-cell="Peso Kg">...</td>
-                                <td data-cell="Estado">
-                                    <select>
-                                        <option value="preparado">Pendiente</option>
-                                        <option value="preparado">Preparado</option>
-                                        <option value="cargado">Cargado</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td data-cell="ID">...</td>
-                                <td data-cell="Descripcion">...</td>
-                                <td data-cell="Peso Kg">...</td>
-                                <td data-cell="Estado">
-                                    <select>
-                                        <option value="preparado">Pendiente</option>
-                                        <option value="preparado">Preparado</option>
-                                        <option value="cargado">Cargado</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td data-cell="ID">...</td>
-                                <td data-cell="Descripcion">...</td>
-                                <td data-cell="Peso Kg">...</td>
-                                <td data-cell="Estado">
-                                    <select>
-                                        <option value="preparado">Pendiente</option>
-                                        <option value="preparado">Preparado</option>
-                                        <option value="cargado">Cargado</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </table>
+            <h1>- Gerente -</h1>
+                <div class="opcion paquete">
+                    <h2>Paquete</h2><br>
+                    <div class="contenedor_opciones">
+                        <div class="opciones"><a href="paquete/lista.html">Lista</a></div>
                     </div>
                 </div>
-            </div>
+                <div class="opcion lote">
+                    <h2>Lote</h2><br>
+                    <div class="contenedor_opciones">
+                        <div class="opciones"><a href="lote/lista.html">Lista</a></div>
+                        <div class="opciones"><a href="lote/crear.html">Lista Paquetes en loter</a></div>
+                        <div class="opciones"><a href="lote/cargarCamion">Cargar en Camion</a></div>
+                    </div>
+                </div>
+                <div class="opcion estante">
+                    <h2>Estante</h2><br>
+                    <div class="contenedor_opciones">
+                        <div class="opciones"><a href="estante/lista.html">Lista</a></div>
+                        <div class="opciones"><a href="estante/crear.html">Trasladar Paquete</a></div>
+                        <div class="opciones"><a href="estante/">Quitar paquete</a></div>
+                    </div>
+                </div>
         </div>
     </main>
 
