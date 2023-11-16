@@ -590,7 +590,7 @@ function asignarChoferCamion(ID_Chofer, ID_Camion){
     });
 }
 
-function asignarLoteCamion(ID_Lote, ID_Camion){                     //no funca
+function asignarLoteCamion(ID_Lote, ID_Camion){
     var ID_Lote = document.getElementById("ID_Lote").value;
     var ID_Camion = document.getElementById("ID_Camion").value;
     console.log(ID_Lote, ID_Camion);
@@ -637,8 +637,34 @@ function asignarLoteCamion(ID_Lote, ID_Camion){                     //no funca
     }
 }
 
-function verCamionesEnPlataformas(){
-    // no funca
+function verCamionesEnPlataformas(ID_Almacen){
+    var ID_Almacen = document.getElementById("ID_Almacen").value;
+    console.log(ID_Almacen);
+    jQuery.ajax({
+        url: "http://localhost:8001/api/gerente/camiones/plataformas",
+        type: "GET",
+        data: {
+            'ID_Almacen': ID_Almacen,
+        },
+        success: function (data) {
+            console.log(data);
+            document.getElementById('tablaResultados');
+            tablaResultados.innerHTML = '';
+            data.forEach(data => {
+                var resultado = document.createElement('tr');
+                resultado.innerHTML = `
+                    <td data-cell="ID Camion">${data.ID_Camion}</td>
+                    <td data-cell="Matricula">${data.Matricula}</td>
+                    <td data-cell="Numero_Plataforma">${data.Numero_Plataforma}</td>
+                    <td data-cell="Fecha_Hora_Llegada">${data.Fecha_Hora_Llegada}</td>
+                `;
+                document.getElementById('tablaResultados').appendChild(resultado);
+            });
+        },
+        error: function () {
+            alert("No se pudo encontrar el chofer");
+        }
+    });
 }
 
 function verCamioneEnTransito(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
