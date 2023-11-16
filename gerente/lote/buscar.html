@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asignar a Camion - Lote</title>
-    <link rel="stylesheet" href="../../css/crear.css">
+    <title>Buscar - Lote</title>
+    <link rel="stylesheet" href="../../css/lista.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/tabla.css">
     <link rel="icon" href="../../img/LOGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
@@ -45,24 +46,37 @@
     </header>
 
     <main>
-        <div class="container_crear">
-            <h1>Asignar a Camion - Lote</h1>
-            <div class="formulario">
-                <form action="">
-                    <label for="ID_Lote">ID del Lote: </label>
-                    <input type="number" name="ID_Lote" id="ID_Lote" required>
-                    <br><br>
-                    <label for="ID_Camion">ID del Camion: </label>
-                    <input type="number" name="ID_Camion" id="ID_Camion" required>
-                    <br><br>
-                    <button class="btn-a" type="button" onclick="asignarLoteCamion()">Listar Paquetes</button>
-                    <br><br>
-                </form>
-            </div>
+        <div class="contenedor_lista">
+            <h2>Buscar - Lote</h2>
+            <form action="">
+                <label for="ID_Gerente" style="color: white;">ID Gerente: </label>
+                <input type="number" name="ID_Gerente" id="ID_Gerente">
+                <br><br>
+                <label for="ID_Lote" style="color: white;">ID Lote: </label>
+                <input type="number" name="ID_Lote" id="ID_Lote">
+                <br><br>
+                <button class="btn-a" type="button" onclick="buscarLote()">Buscar Lote</button>
+            </form>
+            <br><br>
+            <div class="lista">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descripcion</th>
+                            <th>Peso_Kg</th>
+                            <th>ID_Estado</th>
+                            <th colspan="2">Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaResultados">
+                    </tbody>
+                </table>
+            </div>    
         </div>
     </main>
 
-    <footer class="footer-lote">
+    <footer id="footer" class="footer">
         <div class="container-footer">
             <div class="empresa-container espacio">
                 <h3>Empresa:</h3>

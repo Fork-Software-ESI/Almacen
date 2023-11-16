@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asignar a Camion - Lote</title>
+    <title>Crear - Paquete</title>
+    <link rel="icon" href="../../img/LOGO.png">
     <link rel="stylesheet" href="../../css/crear.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="icon" href="../../img/LOGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -46,23 +46,37 @@
 
     <main>
         <div class="container_crear">
-            <h1>Asignar a Camion - Lote</h1>
+            <h1>Crear - Paquete</h1>
             <div class="formulario">
                 <form action="">
-                    <label for="ID_Lote">ID del Lote: </label>
-                    <input type="number" name="ID_Lote" id="ID_Lote" required>
+                    <label for="ID_Gerente">ID del gerente: </label>
+                    <input type="number" id="ID_Gerente" name="ID_Gerente" required>
+                    <br>
+                    <label for="Descripcion">Descripción: </label>
+                    <input type="text" id="Descripcion" name="Descripcion" required>
+                    <br>
+                    <label for="Peso_Kg">Peso en kg: </label>
+                    <input type="number" id="Peso_Kg" name="Peso_Kg" step="0.01" required>
+                    <br>
+                    <label for="ID_Cliente">ID del Cliente: </label>
+                    <input type="number" id="ID_Cliente" name="ID_Cliente" required>
+                    <br>
+                    <label for="Calle">Calle: </label>
+                    <input type="text" id="Calle" name="Calle" required>
+                    <br>
+                    <label for="Numero_Puerta">Número de puerta: </label>
+                    <input type="number" id="Numero_Puerta" name="Numero_Puerta" required>
+                    <br>
+                    <label for="Ciudad">Ciudad: </label>
+                    <input type="text" id="Ciudad" name="Ciudad" required>
                     <br><br>
-                    <label for="ID_Camion">ID del Camion: </label>
-                    <input type="number" name="ID_Camion" id="ID_Camion" required>
-                    <br><br>
-                    <button class="btn-a" type="button" onclick="asignarLoteCamion()">Listar Paquetes</button>
-                    <br><br>
+                    <button class="btn-a" type="button" onclick="crearPaquete()">Crear Paquete</button>
                 </form>
             </div>
         </div>
     </main>
 
-    <footer class="footer-lote">
+    <footer class="footer">
         <div class="container-footer">
             <div class="empresa-container espacio">
                 <h3>Empresa:</h3>

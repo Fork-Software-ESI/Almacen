@@ -54,6 +54,10 @@ input[type="submit"]:hover {
 }
 
 .footer{
+    position: relative;
+}
+
+.footer-lote{
     position: absolute;
 }
 
@@ -115,4 +119,11 @@ input[type="submit"]:hover {
         left: 0;
         z-index: 2;
     }
+}
+
+
+@media(max-width:450px){
+    .footer-lote{
+        position: relative;
+    }    
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asignar a Camion - Lote</title>
+    <title>Asignar a Lote - Paquete</title>
     <link rel="stylesheet" href="../../css/crear.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="icon" href="../../img/LOGO.png">
@@ -46,16 +46,19 @@
 
     <main>
         <div class="container_crear">
-            <h1>Asignar a Camion - Lote</h1>
+            <h1>Asignar a Lote - Paquete</h1>
             <div class="formulario">
                 <form action="">
+                    <label for="ID_Gerente">ID del Gerente: </label>
+                    <input type="number" name="ID_Gerente" id="ID_Gerente" required>
+                    <br><br>
+                    <label for="ID_Paquete">ID del Paquete: </label>
+                    <input type="number" name="ID_Paquete" id="ID_Paquete" required>
+                    <br><br>
                     <label for="ID_Lote">ID del Lote: </label>
                     <input type="number" name="ID_Lote" id="ID_Lote" required>
                     <br><br>
-                    <label for="ID_Camion">ID del Camion: </label>
-                    <input type="number" name="ID_Camion" id="ID_Camion" required>
-                    <br><br>
-                    <button class="btn-a" type="button" onclick="asignarLoteCamion()">Listar Paquetes</button>
+                    <button class="btn-a" type="button" onclick="asignarPaqueteLote()">Listar Paquetes</button>
                     <br><br>
                 </form>
             </div>
