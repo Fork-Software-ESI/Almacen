@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionario</title>
-    <link rel="stylesheet" href="css/gerente.css">
-    <link rel="stylesheet" href="css/tabla.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Editar - Paquete</title>
+    <link rel="stylesheet" href="../../css/editar.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../img/LOGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -20,14 +20,16 @@
                 <i class="fa fa-bars"></i>
             </label>
             <div class="container_logo">
-                <a href="index.html">
-                    <img class="logo" src="img/LOGO.png" alt="logo">
+                <a href="../../index.html">
+                    <img class="logo" src="../../img/LOGO.png" alt="logo">
                 </a>
             </div>
             <ul class="nav_links">
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="lista.html">Lista Paquete</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
             </ul>
+            
             <div class="menu-idioma">
                 <div class="seleccionar_idioma">
                     <p class="idioma">Español</p>
@@ -43,43 +45,47 @@
             </div>
         </nav>
     </header>
-
+    
     <main>
-        <div class="contenedor">
-            <h1>- Funcionario -</h1>
-                <div class="opcion paquete">
-                    <h2>Paquete</h2><br>
-                    <div class="contenedor_opciones">
-                        <div class="opciones"><a href="funcionario/paquete/lista.html">Lista</a></div>
-                        <div class="opciones"><a href="funcionario/paquete/registarEstanteria.html">Registar en Estante</a></div>
-                    </div>
-                </div>
-                <div class="opcion lote">
-                    <h2>Lote</h2><br>
-                    <div class="contenedor_opciones">
-                        <div class="opciones"><a href="funcionario/lote/lista.html">Lista</a></div>
-                        <div class="opciones"><a href="funcionario/lote/crear.html">Lista Paquetes en loter</a></div>
-                        <div class="opciones"><a href="funcionario/lote/cargarCamion.html">Cargar en Camion</a></div>
-                    </div>
-                </div>
-                <div class="opcion estante">
-                    <h2>Estante</h2><br>
-                    <div class="contenedor_opciones">
-                        <div class="opciones"><a href="funcionario/estante/lista.html">Lista</a></div>
-                        <div class="opciones"><a href="funcionario/estante/trasladarPaquete.html">Trasladar Paquete</a></div>
-                        <div class="opciones"><a href="funcionario/estante/quitarPaquete.html">Quitar paquete</a></div>
-                    </div>
-                </div>
+        <h1 style="text-align: center; color: white;">Editar Paquete</h1>
+        
+        <div class="formulario">
+            <form action="">
+                <fieldset>
+                    <ul>
+                        <li class="li-form">
+                            <label class="label-form" for="descripcion">Descripcion:</label>
+                            <input type="text">
+                        </li>
+                        <li class="li-form">
+                            <label class="label-form" for="pesoKg">Peso en Kg:</label>
+                            <input type="number">
+                        </li>
+                        <li class="li-form">
+                            <label class="label-form" for="destino">Destino:</label>
+                            <input type="text">
+                        </li>
+                        <li class="li-form">
+                            <label class="label-form" for="estado">Estado:</label>
+                            <input type="text">
+                        </li>
+                        <li class="li-form">
+                            <input type="submit" value="Editar">        
+                        </li>
+                    </ul>
+                    
+                </fieldset>
+            </form>
         </div>
     </main>
 
-    <footer class="footer-fun">
+    <footer class="footer">
         <div class="container-footer">
             <div class="empresa-container espacio">
                 <h3>Empresa:</h3>
                 <ul class="empresa">
-                    <li><a href="#sobre_nosotros">Sobre Nosotros</a></li>
-                    <li><a href="servicios.html">Nuestros Servicios</a></li>
+                    <li><a href="../../index.html/#sobre_nosotros">Sobre Nosotros</a></li>
+                    <li><a href="../servicios.html">Nuestros Servicios</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
@@ -104,6 +110,8 @@
             </div>
         </div>
     </footer>
-    <script src="../js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../../js/funcionario.js"></script>
+    <script src="../../js/script.js"></script>
 </body>
 </html>
