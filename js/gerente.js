@@ -178,8 +178,6 @@ function eliminarPaquete(ID) {
     });
 }
 
-// Lote
-
 function crearLote(ID_Gerente, Descripcion, Peso_Kg){
     var ID_Gerente = document.getElementById("ID_Gerente").value;
     var Descripcion = document.getElementById("Descripcion").value;
@@ -387,8 +385,6 @@ function eliminarLote(ID){
     });
 }
 
-// Chofer
-
 function verChofer(ID){
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/choferes",
@@ -472,8 +468,6 @@ function listaChoferCamion(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
         }
     });
 }
-
-// Camion
 
 function verCamiones(ID, Matricula, PesoMaximoKg){
     jQuery.ajax({
@@ -661,7 +655,6 @@ function verCamioneEnTransito(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado
             document.getElementById('tablaResultados').innerHTML = '';
             document.getElementById('tablaResultadosSalida').innerHTML = '';
 
-            // Manejar los camiones en tránsito
             if (data['Camiones en tránsito']) {
                 data['Camiones en tránsito'].forEach(camion => {
                     var resultado = document.createElement('tr');
@@ -675,7 +668,6 @@ function verCamioneEnTransito(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado
                 });
             }
 
-            // Manejar los horarios de salida
             if (data['Horarios de salida']) {
                 for (const ID_Camion in data['Horarios de salida']) {
                     if (data['Horarios de salida'].hasOwnProperty(ID_Camion)) {
