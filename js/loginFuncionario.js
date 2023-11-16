@@ -12,6 +12,17 @@ btn.addEventListener('click', function (e) {
         data: {
             username: username.value,
             password: password.value,
-            ''
+            rol: "funcionario"
+        },
+
+        success: function (data) {
+            window.location.href = "../funcionario.html"
+            localStorage.setItem("token", data.user.token)
+        },
+
+        error: function (error) {
+            alert(error.responseJSON.message);
         }
-    })
+    });
+
+})
