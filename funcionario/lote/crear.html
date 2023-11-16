@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear - Lote</title>
-    <link rel="icon" href="img/LOGO.png">
-    <link rel="stylesheet" href="../../css/crear.css">
+    <title>Listar Paquete Lote - Lote</title>
+    <link rel="icon" href="../../img/LOGO.png">
+    <link rel="stylesheet" href="../../css/lista.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/tabla.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -45,20 +46,27 @@
     </header>
 
     <main>
-        <div class="container_crear">
-            <h1>Crear - Lote</h1>
-            <div class="formulario">
-                <form action="">
-                    <fieldset>
-                        <label for="descripcion">Descripción:</label>
-                        <input type="text" id="descripcion" name="descripcion" required>
-                        <br>
-                        <label for="peso">Peso en kg:</label>
-                        <input type="number" id="peso" name="peso" step="0.01" required>
-                        <br>
-                        <input type="submit">
-                    </fieldset>
-                </form>
+        <div class="contenedor_lista">
+            <h2>Listar Paquete en Lotes - Lote</h2>
+            <form action="">
+                <label for="ID_Funcionario" style="color: white;">ID del Funcionario: </label>
+                <input type="number" name="ID_Funcionario" id="ID_Funcionario" required><br><br>
+                <button class="btn-a" type="button" onclick="listarPaqueteLote()">Listar Paquetes</button>
+                <br><br>
+            </form>
+            <div class="lista">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>ID_Lote</th>
+                            <th>ID_Paquete</th>
+                            <th>ID Estado</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaResultados">
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>

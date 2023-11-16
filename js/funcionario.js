@@ -90,36 +90,6 @@ function quitarPaqueteDeEstante(ID_Paquete){
     });
 }
 
-/* function listarPaquetesAlmacen(ID_Funcionario){
-    var ID_Funcionario = document.getElementById("ID_Funcionario").value;
-    console.log(ID_Funcionario);
-    jQuery.ajax({
-        url: "http://localhost:8001/api/funcionario/paquetes",
-        type: "GET",
-        data: {
-            "ID_Funcionario": ID_Funcionario
-        },
-        success:function(data){
-            document.getElementById('tablaResultados');
-            tablaResultados.innerHTML = "";
-            data.Paquetes.forEach(paquete => {
-                var resultado = document.createElement('tr');
-                resultado.innerHTML = `
-                    <td>${paquete.ID_Paquete}</td>
-                    <td>${paquete.ID_Estante}</td>
-                    <td>${paquete.ID_Almacen}</td>
-                `;
-                document.getElementById('tablaResultados').appendChild(resultado);
-            });
-        },
-        error:function(error){
-            console.log(error);
-            alert("Error al listar paquetes");
-        }
-    });
-} */
-
-
 function listarPaquetesAlmacen(ID_Funcionario) {
     var ID_Funcionario = document.getElementById("ID_Funcionario").value;
     var tablaResultados = document.getElementById('tablaResultados');
@@ -134,7 +104,6 @@ function listarPaquetesAlmacen(ID_Funcionario) {
             console.log(data);
 
             if (data.Paquetes && Array.isArray(data.Paquetes)) {
-                // Verificar si el elemento existe
                 if (tablaResultados) {
                     tablaResultados.innerHTML = '';
 
@@ -166,37 +135,147 @@ function listarPaquetesAlmacen(ID_Funcionario) {
 
 
 function listarLotes(ID_Funcionario){
-    var IDfUNID_Funcionarion = document.getElementById("ID_Funcionario").value;
-    console.log(IDfUNID_Funcionarion);
+    var ID_Funcionario = document.getElementById("ID_Funcionario").value;
+    var tablaResultados = document.getElementById('tablaResultados');
     jQuery.ajax({
-            url: "http://localhost:8001/api/funcionario/paquetes/lotes",
-            type: "GET",
-            data: {
-                "ID_Almacen": ID_Funcionario
-            },
+        url: "http://localhost:8001/api/funcionario/lotes",
+        type: "GET",
+        data: {
+            "ID_Funcionario": ID_Funcionario,
+        },
+        success:function(data){
+            console.log(data);
 
-        });
+            if (data.success && Array.isArray(data.success)) {
+                if (tablaResultados) {
+                    tablaResultados.innerHTML = '';
+
+                    if (data.success.length > 0) {
+                        data.success.forEach(paquete => {
+                            var resultado = document.createElement('tr');
+                            resultado.innerHTML = `
+                                <td data-cell="ID">${paquete.ID}</td>
+                                <td data-cell="Descripcion">${paquete.Descripcion}</td>
+                                <td data-cell="ID Estado">${paquete.ID_Estado}</td>
+                            `;
+                            tablaResultados.appendChild(resultado);
+                        });
+                    } else {
+                        console.log('No hay paquetes en la respuesta.');
+                    }
+                } else {
+                    console.error("El elemento con ID 'tablaResultados' no existe.");
+                }
+            } else {
+                console.log('La propiedad "Paquetes" no está presente o no es un array en la respuesta.');
+            }
+        },
+        error: function () {
+            alert("No se pudo encontrar los paquetes");
+        }
+    });
 }
 
-function listarPaqueteLote(){
+function listarPaqueteLote(ID_Funcionario) {
+    var ID_Funcionario = document.getElementById("ID_Funcionario").value;
+
     jQuery.ajax({
-            url: URL + "lotes/paquetes",
-            type: "GET",
-        });
+        url: "http://localhost:8001/api/funcionario/lotes/paquetes",
+        type: "GET",
+        data: {
+            'ID_Funcionario': ID_Funcionario,
+        },
+        success: function (data) {
+            console.log(data);
+
+            if (data.success && typeof data.success === 'object') {
+                var tablaResultados = document.getElementById('tablaResultados');
+                tablaResultados.innerHTML = '';
+                for (var key in data.success) {
+                    if (data.success.hasOwnProperty(key)) {
+                        var paqueteLote = data.success[key];
+                        var resultado = document.createElement('tr');
+                        resultado.innerHTML = `
+                            <td data-cell="ID Lote">${paqueteLote.ID_Lote}</td>
+                            <td data-cell="ID Paquete">${paqueteLote.ID_Paquete}</td>
+                            <td data-cell="ID Estado">${paqueteLote.ID_Estado}</td>
+                        `;
+                        tablaResultados.appendChild(resultado);
+                        if(paqueteLote.ID_Estado === 1){
+                            var editar = document.createElement('td');
+                            editar.setAttribute('data-cell', 'Editar');
+                            editar.innerHTML = `
+                                <button class="btn-modificar" onclick="editarLote(${ID_Funcionario}, ${paqueteLote.ID_Paquete})" style="color: black;"><i class="fa fa-pencil"></i></button>
+                            `;
+                            resultado.appendChild(editar);
+                        }
+                    }
+                }
+            } else {
+                console.error('La propiedad "success" no está presente o no es un objeto en la respuesta.');
+            }
+        },
+        error: function () {
+            alert("No se pudo encontrar los paquetes");
+        }
+    });
 }
 
-function actualizarPaqueteLote(){
+function editarLote(ID_Funcionario, ID_Paquete){
+    var ID_Funcionario = ID_Funcionario;
     jQuery.ajax({
-            url: URL + "lotes/paquetes",
-            type: "PATCH",
-        });
+        url: "http://localhost:8001/api/funcionario/lotes/paquetes",
+        type: "PATCH",
+        data: {
+            "ID_Funcionario": ID_Funcionario,
+            "ID_Paquete": ID_Paquete,
+        },
+        success:function(data){
+            console.log(data);
+            alert("Lote actualizado");
+            document.getElementById("ID_Lote").value = "";
+            document.getElementById("ID_Paquete").value = "";
+            document.getElementById("ID_Estado").value = "";
+        },
+        error:function(error){
+            console.log(error);
+            alert("Error al actualizar lote");
+        }
+    });
 }
 
-function cargarLoteCamion(){
+function cargarLoteCamion(ID_Funcionario, ID_Lote){
+    var ID_Funcionario = document.getElementById("ID_Funcionario").value;
+    var ID_Lote = document.getElementById("ID_Lote").value;
+    
+    if(!ID_Funcionario || !ID_Lote){
+        alert("Ingrese todos los campos");
+        return;
+    }
+
+    if(ID_Funcionario == undefined || ID_Lote == undefined){
+        alert("Ingrese todos los campos");
+        return;
+    }
+
     jQuery.ajax({
-            url: URL + "estante",
-            type: "POST",
-        });
+        url: "http://localhost:8001/api/funcionario/lotes",
+        type: "POST",
+        data: {
+            "ID_Funcionario": ID_Funcionario,
+            "ID_Lote": ID_Lote,
+        },
+        success:function(data){
+            console.log(data);
+            alert("Lote cargado en camion");
+            document.getElementById("ID_Funcionario").value = "";
+            document.getElementById("ID_Lote").value = "";
+        },
+        error:function(error){
+            console.log(error);
+            alert("Error al cargar lote en camion");
+        }
+    });
 }
 
 
