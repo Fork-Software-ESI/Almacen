@@ -95,7 +95,7 @@ function listarPaquetesAlmacen(ID_Funcionario) {
     var tablaResultados = document.getElementById('tablaResultados');
 
     jQuery.ajax({
-        url: "http://localhost:8001/api/funcionario/paquetes/" + ID_Funcionario,
+        url: "http://localhost:8001/api/funcionario/paquetes",
         type: "GET",
         data: {
             'ID_Funcionario': ID_Funcionario,
