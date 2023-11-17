@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fork Software</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="img/LOGO.png">
+    <title>SATP</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/LOGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -23,13 +23,13 @@
             </label>
             <div class="container_logo">
                 <a href="index.html">
-                    <img class="logo" src="img/LOGO.png" alt="logo">
+                    <img class="logo" src="../img/LOGO.png" alt="logo">
                 </a>
             </div>
             <ul class="nav_links">
-                <li><a href="index.html" data-close-menu>Inicio</a></li>
+                <li><a href="../index.html" data-close-menu>Inicio</a></li>
                 <li><a href="#sobre_nosotros" data-close-menu>Sobre nosotros</a></li>
-                <li><a href="html/servicios.html" data-close-menu>Servicios</a></li>
+                <li><a href="../servicios.html" data-close-menu>Servicios</a></li>
                 <li><a href="#contacto" data-close-menu>Contacto</a></li>
             </ul>
 
@@ -54,59 +54,37 @@
     </header>
 
     <main>
-        <div class="slideshow-container">
-            <div class="mySlides fade">
-                <img src="img/camion-caja-mapa.jpg" style="width:100%;">
-            </div>
-            <div class="mySlides fade">
-                <img src="img/supply-chain-representation-still-life.jpg" style="width:100%;">
-            </div>
-            <div class="mySlides fade">
-                <img src="img/vehicles-laptop-supply-chain-representation.jpg" style="width:100%;">
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
 
         <br>
 
-        <div class="aaa" style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-
         <div class="container">
-            <h1>Bienvenido a SATP</h1>
+            <h1>Bienvenido</h1>
         </div>
 
-        <section>
-            <div class="opciones-container">
-                <div class="opcion ingresar-container">
-                    <h2>Gerente</h2>
-                    <div class="button-container">
-                        <a href="gerente/login.html"><button class="boton">Ingresar</button></a>
+        <div class="formulario">
+            <form action="#" method="POST" name="formulario">
+                <fieldset>
+                    <div class="contenedor_fieldset">
+                        <div class="img">
+                            <img src="../img/LOGO.png" height="280px" width="280px" alt="logo">
+                        </div>
+                        <div class="dentro_formulario">
+                            <h2 style="text-align: center;">Inicie sesión</h2>
+                            <input type="text" id="username" maxlength="20" placeholder="Usuario" required>
+                            <input type="password" id="password" maxlength="12" placeholder="Contraseña" required>
+                            <div class="ingresar_crear">
+                                <button type="submit" id="botonLogin" class="botonLogin">INGRESAR</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="opcion">
-                    <img src="./img/LOGO.png">
-                </div>
-
-                <div class="opcion ingresar-container">
-                    <h2>Funcionario</h2>
-                    <div class="button-container">
-                        <a href="funcionario/login.html"><button class="boton">Ingresar</button></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </fieldset>
+            </form>
+        </div>
 
         <div id="sobre_nosotros">
             <div class="nosotros">
                 <div class="img_nosotros">
-                    <img src="img/arrangement-with-laptop-boxes.jpg" alt="IMG" width="250px" height="auto">
+                    <img src="../img/arrangement-with-laptop-boxes.jpg" alt="IMG" width="250px" height="auto">
                 </div>
                 <div class="texto">
                     <h2>Sobre Nosotros:</h2>
@@ -164,7 +142,9 @@
             </div>
         </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script src="../js/loginGerente.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="../../js/validar.js"></script>
 </head>
+
 <body>
     <header>
         <nav>
@@ -35,26 +39,30 @@
                 </div>
                 <ul>
                     <li class="eleccion-idioma">
-                        <a href="#" class="us"><p class="idioma">English</p></a>
+                        <a href="#" class="us">
+                            <p class="idioma">English</p>
+                        </a>
                     </li>
                     <li class="eleccion-idioma">
-                        <a href="#" class="es"><p class="idioma">Español</p></a>
+                        <a href="#" class="es">
+                            <p class="idioma">Español</p>
+                        </a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
-    
+
     <main>
         <div class="contenedor_lista">
             <h2>Plataforma - Camion</h2>
-                <form action="">
-                    <label for="ID_Almacen" style="color: white;">ID del Almacen: </label>
-                    <input type="number" name="ID_Almacen" id="ID_Almacen" required>
-                    <br><br>
-                    <button class="btn-a" type="button" onclick="verCamionesEnPlataformas()">Ver Camion</button>
-                    <br><br>
-                </form>
+            <form action="">
+                <label for="ID_Almacen" style="color: white;">ID del Almacen: </label>
+                <input type="number" name="ID_Almacen" id="ID_Almacen" required>
+                <br><br>
+                <button class="btn-a" type="button" onclick="verCamionesEnPlataformas()">Ver Camion</button>
+                <br><br>
+            </form>
             <div class="lista">
                 <table class="tabla">
                     <thead>
@@ -93,9 +101,11 @@
                     <ul class="redes">
                         <li class="numero">+598 *** ***</li>
                         <li>
-                            <a href="https://www.youtube.com/watch?v=wUWMjdo9t6k&ab_channel=Temppo" target="_blank"><i class="red fa fa-youtube-play"></i></a>
+                            <a href="https://www.youtube.com/watch?v=wUWMjdo9t6k&ab_channel=Temppo" target="_blank"><i
+                                    class="red fa fa-youtube-play"></i></a>
                             <a href="https://www.instagram.com/" target="_blank"><i class="red fa fa-instagram"></i></a>
-                            <a href="https://uy.linkedin.com/" target="_blank"><i class="red fa fa-linkedin"></i></a><br>
+                            <a href="https://uy.linkedin.com/" target="_blank"><i
+                                    class="red fa fa-linkedin"></i></a><br>
                         </li>
                         <li class="email"> forksoftware.esi@gmail.com</li>
                     </ul>
@@ -106,4 +116,5 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../../js/gerente.js"></script>
 </body>
+
 </html>

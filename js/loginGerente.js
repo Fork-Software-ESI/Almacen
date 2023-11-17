@@ -12,11 +12,11 @@ btn.addEventListener('click', function (e) {
         data: {
             username: username.value,
             password: password.value,
-            rol: "FuncionarioAlmacen"
+            rol: "GerenteAlmacen"
         },
 
         success: function (data) {
-            window.location.href = "../funcionario.html"
+            window.location.href = "../gerente.html"
             localStorage.setItem("token", data.user.token)
         },
 
