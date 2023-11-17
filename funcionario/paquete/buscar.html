@@ -30,8 +30,8 @@
                 </a>
             </div>
             <ul class="nav_links">
-                <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
+                <li><a id="inicio" href="../../index.html">Inicio</a></li>
+                <li><a id="servicio" href="servicios.html">Servicios</a></li>
             </ul>
             <div class="menu-idioma">
                 <div id="seleccionar-idioma" class="seleccionar-idioma" onclick="toggleMenu()">
@@ -54,9 +54,9 @@
 
     <main>
         <div class="contenedor_lista">
-            <h2>Buscar - Paquete</h2>
+            <h2 id="buscar-paquete">Buscar - Paquete</h2>
             <form action="">
-                <label for="ID_Cliente" style="color: white;">ID_Cliente:</label>
+                <label for="id_cliente" style="color: white;">ID_Cliente:</label>
                 <input type="text" name="ID_Cliente" id="ID_Cliente">
                 <br><br>
                 <button type="button" onclick="buscarPaquete()" style="color: black;">Buscar Paquete</button>
@@ -67,17 +67,16 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>ID_Cliente</th>
-                            <th>Descripcion</th>
-                            <th>Peso_Kg</th>
-                            <th>ID_Estado</th>
-                            <th>Destino</th>
+                            <th id="id-cliente">ID_Cliente</th>
+                            <th id="id-cliente">Descripcion</th>
+                            <th id="peso-kg">Peso_Kg</th>
+                            <th id="id-estante">ID_Estado</th>
+                            <th id="destino">Destino</th>
                         </tr>
                     </thead>
                     <tbody id="tablaResultados">
                     </tbody>
                 </table>
-                </divstyle=>
             </div>
     </main>
 

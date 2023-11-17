@@ -59,16 +59,19 @@ function traducirAEspanol(){
     txtEspañol.innerHTML = "Español"
     //homepage
     txtBienvenido.innerHTML = "Bienvenido"
-    txtGerente.innerHTML = "Gerente"
-    txtFuncionario.innerHTML = "Funcionario"
+    txtIngresar.innerHTML = "Ingresar"
+    txtUsername.placeholder = "Usuario"
+    txtPassword.placeholder = "Contraseña"
+    txtIngresar2.innerHTML = "Ingresar"
     txtNosotros.innerHTML = "Sobre Nosotros"
-    txtQuienesSomos.innerHTML = "Fork Software es una empresa de informática especializada en el control y supervisión efectiva del transporte de paquetería. Su enfoque principal es garantizar la seguridad y eficiencia de cada envío, proporcionando a las empresas una visibilidad completa y en tiempo real de sus paquetes. A través de su plataforma tecnológica avanzada, Fork Software permite un seguimiento detallado de los envíos, brindando a sus clientes la tranquilidad de saber dónde se encuentran sus paquetes en todo momento. Aunque actualmente operan exclusivamente en Uruguay, la empresa tiene planes de expansión hacia otros países cercanos en el futuro. Con un enfoque en la innovación y la colaboración con otras empresas, Fork Software se esfuerza por adaptarse a las necesidades futuras de sus clientes en el campo de la logística."
+    txtQuienesSomos.innerHTML = "Fork Software es una empresa de tecnología especializada en el control y supervisión efectiva del transporte de mercaderías. Su foco principal es garantizar la seguridad y eficiencia de cada envío, brindando a las empresas una visibilidad completa y en tiempo real de sus paquetes. A través de su plataforma tecnológica avanzada, Fork Software permite un seguimiento detallado de los envíos, ofreciendo a los clientes la tranquilidad de conocer la ubicación exacta de sus paquetes en todo momento. Si bien actualmente opera exclusivamente en Uruguay, la empresa tiene planes de expansión a otros países vecinos en el futuro. Con un compromiso de innovación y colaboración con otras empresas, Fork Software se esfuerza por adaptarse a las necesidades futuras de sus clientes en el campo de la logística."
     //footer
-    txtBienvenido.innerHTML = "Bienvenido a Fork Software"
-    txtQuienesSomos.innerHTML = "Fork Software es una empresa de informática especializada en el control y supervisión efectiva del transporte de paquetería. Su enfoque principal es garantizar la seguridad y eficiencia completa y en tiempo real de sus paquetes. A través de su plataforma tecnológica avanzada, Fork Software permite un seguimiento detallado de los envíos, brindando a sus clientes la tranquilidad de saber dónde se encuentran sus paquetes en todo momento. Aunque actualmente operan exclusivamente en Uruguay, la empresa tiene planes de expansión hacia otros países cercanos en el futuro. Con un enfoque en la innovación y la colaboración con otras empresas, Fork Software se esfuerza por adaptarse a las necesidades futuras de sus clientes en el campo de la logística."
     txtEmpresa.innerHTML = "Empresa"
     txtDondeUbicarnos.innerHTML = "Donde ubicarnos"
     txtDireccion.innerHTML = "Nos encontramos en calle 25 de agosto 1800"
+    txtNosotrosFooter.innerHTML = "Sobre Nosotros"
+    txtServiciosFooter.innerHTML = "Servicios"
+    txtContactoFooter.innerHTML = "Contacto"
 }
 
 es.addEventListener("click", function(){

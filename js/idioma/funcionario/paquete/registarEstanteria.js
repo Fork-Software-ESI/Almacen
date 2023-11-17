@@ -4,24 +4,18 @@ let en = document.getElementById("ingles")
 //navbar
 let txtInicio = document.getElementById("inicio")
 let txtSobreNosotros = document.getElementById("sobre-nosotros-txt")
+let txtNosotros = document.getElementById("SobreNosotros")
 let txtServicios = document.getElementById("servicios")
+let txtContacto = document.getElementById("contacto")
 let txtIngles = document.getElementById("ingles")
 let txtEspañol = document.getElementById("español")
 //homepage
-let txtFuncionario = document.getElementById("funcionario")
-let txtPaquete = document.getElementById("paquete")
-let txtListaPaquete = document.getElementById("lista-paquete")
-let txtCrearPaquete = document.getElementById("registrar-paquete")
-
-let txtLote = document.getElementById("lote")
-let txtListaLote = document.getElementById("lista-lote")
-let txtListaPaqueteLote = document.getElementById("lista-paquete-lote")
-let txtCargarLote = document.getElementById("cargar-lote")
-
-let txtEstante = document.getElementById("estante")
-let txtTrasladar = document.getElementById("trasladar-estante")
-let txtQuitar = document.getElementById("quitar-estante")
-
+let txtLista = document.getElementById("registar-paquete")
+let txtFuncionario = document.getElementById("id-funcionario")
+let txtIDPaquete = document.getElementById("id-paquete")
+let txtIDEstante = document.getElementById("id-estante")
+let txtIDAlmacen = document.getElementById("id-almacen")
+let txtListarPaquete = document.getElementById("listar-paquete")
 //footer
 let txtEmpresa = document.getElementById("empresa")
 let txtDondeUbicarnos = document.getElementById("donde-ubicarnos")
@@ -36,21 +30,13 @@ function traducirAIngles(){
     txtServicios.innerHTML = "Services"
     txtIngles.innerHTML = "English"
     txtEspañol.innerHTML = "Spanish"
-    
     //homepage
-    txtFuncionario.innerHTML = "Warehouse operator"
-    txtPaquete.innerHTML = "Package"
-    txtListaPaquete.innerHTML = "Package list"
-    txtCrearPaquete.innerHTML = "Create package"
-
-    txtLote.innerHTML = "Lot"
-    txtListaLote.innerHTML = "Lot list"
-    txtListaPaqueteLote.innerHTML = "Package list"
-    txtCargarLote.innerHTML = "Load lot"
-    txtEstante.innerHTML = "Shelf"
-    txtTrasladar.innerHTML = "Transfer"
-    txtQuitar.innerHTML = "Remove"
-
+    txtLista.innerHTML = "Register Package on Shelf - Package"
+    txtFuncionario.innerHTML = "Employee ID"
+    txtIDPaquete.innerHTML = "Package ID"
+    txtIDEstante.innerHTML = "Shelf ID"
+    txtIDAlmacen.innerHTML = "Warehouse ID"
+    txtListarPaquete.innerHTML = "List Package"
     //footer
     txtEmpresa.innerHTML = "Company"
     txtDondeUbicarnos.innerHTML = "Where to find us"
@@ -67,17 +53,12 @@ function traducirAEspanol(){
     txtIngles.innerHTML = "Ingles"
     txtEspañol.innerHTML = "Español"
     //homepage
-    txtFuncionario.innerHTML = "Funcionario"
-    txtPaquete.innerHTML = "Paquete"
-    txtListaPaquete.innerHTML = "Lista Paquete"
-    txtCrearPaquete.innerHTML = "Registrar Paquete"
-    txtLote.innerHTML = "Lote"
-    txtListaLote.innerHTML = "Lista Lote"
-    txtListaPaqueteLote.innerHTML = "Lista Paquete"
-    txtCargarLote.innerHTML = "Cargar Lote"
-    txtEstante.innerHTML = "Estante"
-    txtTrasladar.innerHTML = "Trasladar"
-    txtQuitar.innerHTML = "Quitar"
+    txtLista.innerHTML = "Registrar Paquete en Estante - Paquete"
+    txtFuncionario.innerHTML = "ID Funcionario"
+    txtIDPaquete.innerHTML = "ID Paquete"
+    txtIDEstante.innerHTML = "ID Estante"
+    txtIDAlmacen.innerHTML = "ID Almacen"
+    txtListarPaquete.innerHTML = "Listar Paquete"
     //footer
     txtEmpresa.innerHTML = "Empresa"
     txtDondeUbicarnos.innerHTML = "Donde ubicarnos"

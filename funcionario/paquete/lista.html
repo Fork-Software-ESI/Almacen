@@ -30,8 +30,8 @@
                 </a>
             </div>
             <ul class="nav_links">
-                <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
+                <li><a id="inicio" href="../../index.html">Inicio</a></li>
+                <li><a id="servicios" href="servicios.html">Servicios</a></li>
             </ul>
             <div class="menu-idioma">
                 <div id="seleccionar-idioma" class="seleccionar-idioma" onclick="toggleMenu()">
@@ -54,20 +54,20 @@
 
     <main>
         <div class="contenedor_lista">
-            <h2>Lista - Paquete</h2>
+            <h2 id="lista-paquete">Lista - Paquete</h2>
             <form action="">
-                <label for="ID_Funcionario" style="color: white;">ID del Funcionario: </label>
-                <input type="number" name="IDFuncionarion" id="ID_Funcionario" required><br><br>
-                <button class="btn-a" type="button" onclick="listarPaquetesAlmacen()">Listar Paquetes</button>
+                <label for="ID_Funcionario" id="id-funcionario" style="color: white;">ID del Funcionario: </label>
+                <input type="number" name="ID_Funcionario" id="ID_Funcionario" required><br><br>
+                <button class="btn-a" id="listar-paquetes" type="button" onclick="listarPaquetesAlmacen()">Listar Paquetes</button>
                 <br><br>
             </form>
             <div class="lista">
                 <table class="tabla">
                     <thead>
                         <tr>
-                            <th>ID_Paquete</th>
-                            <th>ID_Estante</th>
-                            <th>ID_Almacen</th>
+                            <th id="id-paquete">ID_Paquete</th>
+                            <th id="id-estante">ID_Estante</th>
+                            <th id="id-almacen">ID_Almacen</th>
                         </tr>
                     </thead>
                     <tbody id="tablaResultados">
@@ -113,6 +113,7 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../../js/funcionario.js"></script>
+    <script src="../../js/idioma/funcionario/paquete/lista.js"></script>
     <script src="../../js/script.js"></script>
 </body>
 
