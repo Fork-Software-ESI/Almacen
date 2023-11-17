@@ -10,33 +10,19 @@ let txtContacto = document.getElementById("contacto")
 let txtIngles = document.getElementById("ingles")
 let txtEspañol = document.getElementById("español")
 //homepage
-let txtGerente = document.getElementById("gerente")
-
-let txtFuncionario = document.getElementById("paquete")
-let txtBuscar = document.getElementById("buscar")
+let txtFuncionario = document.getElementById("funcionario")
+let txtPaquete = document.getElementById("paquete")
 let txtListaPaquete = document.getElementById("lista-paquete")
-let txtCrearPaquete = document.getElementById("crear-paquete")
-let txtAsignarPaquete = document.getElementById("asignar-paquete")
+let txtCrearPaquete = document.getElementById("registrar-paquete")
 
 let txtLote = document.getElementById("lote")
 let txtListaLote = document.getElementById("lista-lote")
-let txtCrearLote = document.getElementById("crear-lote")
-let txtBuscarLote = document.getElementById("buscar-lote")
-let txtAsignarLote = document.getElementById("asignar-lote")
+let txtListaPaqueteLote = document.getElementById("lista-paquete-lote")
+let txtCargarLote = document.getElementById("cargar-lote")
 
-let txtChofer = document.getElementById("chofer")
-let txtListaChofer = document.getElementById("lista-chofer")
-let txtDisponiblesChofer = document.getElementById("disponibles-chofer")
-let txtListaChoferCamion = document.getElementById("lista-chofer-camion")
-
-let txtCamion = document.getElementById("camion")
-let txtListaCamion = document.getElementById("lista-camion")
-let txtDisponiblesCamion = document.getElementById("disponibles-camion")
-let txtSinChofer = document.getElementById("sin-chofer")
-let txtTransito = document.getElementById("transito")
-let txtAsignarCamion = document.getElementById("asignar-camion")
-let txtMarcarCamion = document.getElementById("marcar-camion")
-let txtVerCamion = document.getElementById("ver-camion")
+let txtEstante = document.getElementById("estante")
+let txtTrasladar = document.getElementById("trasladar-estante")
+let txtQuitar = document.getElementById("quitar-estante")
 
 //footer
 let txtEmpresa = document.getElementById("empresa")
@@ -54,31 +40,18 @@ function traducirAIngles(){
     txtEspañol.innerHTML = "Spanish"
     
     //homepage
-    txtGerente.innerHTML = "Manager"
-    txtFuncionario.innerHTML = "Employee"
-    txtBuscar.innerHTML = "Search"
+    txtFuncionario.innerHTML = "Warehouse operator"
+    txtPaquete.innerHTML = "Package"
     txtListaPaquete.innerHTML = "Package list"
     txtCrearPaquete.innerHTML = "Create package"
-    txtAsignarPaquete.innerHTML = "Assign package"
 
     txtLote.innerHTML = "Lot"
     txtListaLote.innerHTML = "Lot list"
-    txtCrearLote.innerHTML = "Create lot"
-    txtBuscarLote.innerHTML = "Search lot"
-    txtAsignarLote.innerHTML = "Assign lot"
-    txtChofer.innerHTML = "Driver"
-    txtListaChofer.innerHTML = "Driver list"
-    txtDisponiblesChofer.innerHTML = "Available drivers"
-    txtListaChoferCamion.innerHTML = "Driver list"
-
-    txtCamion.innerHTML = "Truck"
-    txtListaCamion.innerHTML = "Truck list"
-    txtDisponiblesCamion.innerHTML = "Available trucks"
-    txtSinChofer.innerHTML = "Without driver"
-    txtTransito.innerHTML = "In transit"
-    txtAsignarCamion.innerHTML = "Assign truck"
-    txtMarcarCamion.innerHTML = "Mark as Ready"
-    txtVerCamion.innerHTML = "See on platform"
+    txtListaPaqueteLote.innerHTML = "Package list"
+    txtCargarLote.innerHTML = "Load lot"
+    txtEstante.innerHTML = "Shelf"
+    txtTrasladar.innerHTML = "Transfer"
+    txtQuitar.innerHTML = "Remove"
 
     //footer
     txtEmpresa.innerHTML = "Company"

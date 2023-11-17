@@ -33,19 +33,18 @@
                 <li><a href="servicios.html">Servicios</a></li>
             </ul>
             <div class="menu-idioma">
-                <div class="seleccionar_idioma">
-                    <p class="idioma">Español</p>
+                <div id="seleccionar-idioma" class="seleccionar-idioma" onclick="toggleMenu()">
+                    <img id="bandera" src="https://flagsapi.com/ES/flat/32.png" alt="Bandera Español">
+                    <p id="idioma" class="idioma">Español</p>
                 </div>
-                <ul>
-                    <li class="eleccion-idioma">
-                        <a href="#" class="us">
-                            <p class="idioma">English</p>
-                        </a>
+                <ul class="menu-lista" style="display: none;" onclick="seleccionarIdioma(event)">
+                    <li>
+                        <img src="https://flagsapi.com/US/flat/32.png" alt="Bandera Inglés">
+                        <p id="ingles" class="idioma">Ingles</p>
                     </li>
-                    <li class="eleccion-idioma">
-                        <a href="#" class="es">
-                            <p class="idioma">Español</p>
-                        </a>
+                    <li>
+                        <img src="https://flagsapi.com/ES/flat/32.png" alt="Bandera Español">
+                        <p id="español" class="idioma">Español</p>
                     </li>
                 </ul>
             </div>
@@ -75,28 +74,29 @@
     <footer class="footer-lote">
         <div class="container-footer">
             <div class="empresa-container espacio">
-                <h3>Empresa:</h3>
+                <h3 id="empresa">Empresa:</h3>
                 <ul class="empresa">
-                    <li><a href="#sobre_nosotros">Sobre Nosotros</a></li>
-                    <li><a href="../servicios.html">Nuestros Servicios</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a id="nosotros-footer" href="#sobre_nosotros">Sobre Nosotros</a></li>
+                    <li><a id="servicios-footer" href="html/servicios.html">Nuestros Servicios</a></li>
+                    <li><a id="contacto-footer" href="#contacto">Contacto</a></li>
                 </ul>
             </div>
             <div class="espacio">
-                <h3>Dónde Ubicarnos:</h3>
+                <h3 id="donde-ubicarnos">Dónde Ubicarnos:</h3>
                 <div class="ubicacion">
-                    <i class="fa fa-map-marker"> Nos encontramos en calle 25 de agosto 1800</i>
+                    <i id="direccion" class="fa fa-map-marker"> Nos encontramos en calle 25 de agosto 1800</i>
                 </div>
             </div>
             <div id="contacto" class="contacto espacio">
                 <div class="container-redes">
                     <ul class="redes">
-                        <li class="numero">+598 *** ***</li>
+                        <li class="numero">+598 ***</li>
                         <li>
                             <a href="https://www.youtube.com/watch?v=wUWMjdo9t6k&ab_channel=Temppo" target="_blank"><i
                                     class="red fa fa-youtube-play"></i></a>
-                            <a href="https://www.instagram.com/" target="_blank"><i class="red fa fa-instagram"></i></a>
-                            <a href="https://uy.linkedin.com/" target="_blank"><i
+                            <a href="https://www.instagram.com/forksoftware.uy/" target="_blank"><i
+                                    class="red fa fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/fork-software-55b93929a/" target="_blank"><i
                                     class="red fa fa-linkedin"></i></a><br>
                         </li>
                         <li class="email"> forksoftware.esi@gmail.com</li>
