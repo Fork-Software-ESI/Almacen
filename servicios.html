@@ -32,19 +32,18 @@
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <div class="menu-idioma">
-                <div class="seleccionar_idioma">
-                    <p class="idioma">Español</p>
+                <div id="seleccionar-idioma" class="seleccionar-idioma" onclick="toggleMenu()">
+                    <img id="bandera" src="https://flagsapi.com/ES/flat/32.png" alt="Bandera Español">
+                    <p id="idioma" class="idioma">Español</p>
                 </div>
-                <ul>
-                    <li class="eleccion-idioma">
-                        <a href="#" class="us">
-                            <p class="idioma">English</p>
-                        </a>
+                <ul class="menu-lista" style="display: none;" onclick="seleccionarIdioma(event)">
+                    <li>
+                        <img src="https://flagsapi.com/US/flat/32.png" alt="Bandera Inglés">
+                        <p id="ingles" class="idioma">Ingles</p>
                     </li>
-                    <li class="eleccion-idioma">
-                        <a href="#" class="es">
-                            <p class="idioma">Español</p>
-                        </a>
+                    <li>
+                        <img src="https://flagsapi.com/ES/flat/32.png" alt="Bandera Español">
+                        <p id="español" class="idioma">Español</p>
                     </li>
                 </ul>
             </div>
@@ -168,7 +167,7 @@
             </div>
         </div>
     </footer>
-    <script src="../js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
