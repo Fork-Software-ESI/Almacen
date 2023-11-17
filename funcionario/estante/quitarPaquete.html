@@ -29,8 +29,8 @@
                 </a>
             </div>
             <ul class="nav_links">
-                <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
+                <li><a id="inicio" href="../../index.html">Inicio</a></li>
+                <li><a id="servicios" href="servicios.html">Servicios</a></li>
             </ul>
             <div class="menu-idioma">
                 <div id="seleccionar-idioma" class="seleccionar-idioma" onclick="toggleMenu()">
@@ -53,13 +53,13 @@
 
     <main>
         <div class="container_crear">
-            <h1>Quitar Paquete - Estante</h1>
+            <h1 id="quitar-paquete">Quitar Paquete - Estante</h1>
             <div class="formulario">
                 <form action="">
-                    <label for="ID_Paquete">ID del Paquete: </label>
+                    <label id="id-paquete" for="ID_Paquete">ID del Paquete: </label>
                     <input type="number" name="ID_Paquete" id="ID_Paquete" required>
                     <br><br>
-                    <button class="btn-a" type="button" onclick="quitarPaqueteDeEstante()">Listar Paquetes</button>
+                    <button class="btn-a" id="listar-paquetes" type="button" onclick="quitarPaqueteDeEstante()">Listar Paquetes</button>
                     <br><br>
                 </form>
             </div>
@@ -102,6 +102,7 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../../js/funcionario.js"></script>
+    <script src="../../js/idioma/funcionario/estante/quitarPaquete.js"></script>
     <script src="../../js/script.js"></script>
 </body>
 
