@@ -25,19 +25,22 @@
                 </a>
             </div>
             <ul class="nav_links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
+                <li><a id="inicio" href="index.html">Inicio</a></li>
+                <li><a id="servicios" href="servicios.html">Servicios</a></li>
             </ul>
             <div class="menu-idioma">
-                <div class="seleccionar_idioma">
-                    <p class="idioma">Español</p>
+                <div id="seleccionar-idioma" class="seleccionar-idioma" onclick="toggleMenu()">
+                    <img id="bandera" src="https://flagsapi.com/ES/flat/32.png" alt="Bandera Español">
+                    <p id="idioma" class="idioma">Español</p>
                 </div>
-                <ul>
-                    <li class="eleccion-idioma">
-                        <a href="#" class="us"><p class="idioma">English</p></a>
+                <ul class="menu-lista" style="display: none;" onclick="seleccionarIdioma(event)">
+                    <li>
+                        <img src="https://flagsapi.com/US/flat/32.png" alt="Bandera Inglés">
+                        <p id="ingles" class="idioma">Ingles</p>
                     </li>
-                    <li class="eleccion-idioma">
-                        <a href="#" class="es"><p class="idioma">Español</p></a>
+                    <li>
+                        <img src="https://flagsapi.com/ES/flat/32.png" alt="Bandera Español">
+                        <p id="español" class="idioma">Español</p>
                     </li>
                 </ul>
             </div>
@@ -46,43 +49,43 @@
 
     <main>
         <div class="contenedor">
-            <h1>- Gerente -</h1>
+            <h1 id="gerente">- Gerente -</h1>
                 <div class="opcion paquete">
-                    <h2>Paquete</h2><br>
+                    <h2 id="paquete">Paquete</h2><br>
                     <div class="contenedor_opciones">
-                        <div class="opciones"><a href="gerente/paquete/buscar.html">Buscar</a></div>
-                        <div class="opciones"><a href="gerente/paquete/lista.html">Lista</a></div>
-                        <div class="opciones"><a href="gerente/paquete/crear.html">Crear</a></div>
-                        <div class="opciones"><a href="gerente/paquete/asignarLote.html">Asignar a Lote</a></div>
+                        <div class="opciones"><a id="buscar" href="gerente/paquete/buscar.html">Buscar</a></div>
+                        <div class="opciones"><a id="lista-paquete" href="gerente/paquete/lista.html">Lista</a></div>
+                        <div class="opciones"><a id="crear-paquete" href="gerente/paquete/crear.html">Crear</a></div>
+                        <div class="opciones"><a id="asignar-paquete" href="gerente/paquete/asignarLote.html">Asignar a Lote</a></div>
                     </div>
                 </div>
                 <div class="opcion lote">
-                    <h2>Lote</h2><br>
+                    <h2 id="lote">Lote</h2><br>
                     <div class="contenedor_opciones">
-                        <div class="opciones"><a href="gerente/lote/lista.html">Lista</a></div>
-                        <div class="opciones"><a href="gerente/lote/crear.html">Crear</a></div>
-                        <div class="opciones"><a href="gerente/lote/buscar.html">Buscar</a></div>
-                        <div class="opciones"><a href="gerente/lote/asignarCamion.html">Asignar a Camion</a></div>
+                        <div class="opciones"><a id="lista-lote" href="gerente/lote/lista.html">Lista</a></div>
+                        <div class="opciones"><a id="crear-lote" href="gerente/lote/crear.html">Crear</a></div>
+                        <div class="opciones"><a id="buscar-lote" href="gerente/lote/buscar.html">Buscar</a></div>
+                        <div class="opciones"><a id="asignar-lote" href="gerente/lote/asignarCamion.html">Asignar a Camion</a></div>
                     </div>
                 </div>
                 <div class="opcion estante">
-                    <h2>Chofer</h2><br>
+                    <h2 id="chofer">Chofer</h2><br>
                     <div class="contenedor_opciones">
-                        <div class="opciones"><a href="gerente/chofer/lista.html">Lista</a></div>
-                        <div class="opciones"><a href="gerente/chofer/disponibles.html">Disponibles</a></div>
-                        <div class="opciones"><a href="gerente/chofer/listaChoferCamion.html">Ocupados</a></div>
+                        <div class="opciones"><a id="lista-chofer" href="gerente/chofer/lista.html">Lista</a></div>
+                        <div class="opciones"><a id="disponibles-chofer" href="gerente/chofer/disponibles.html">Disponibles</a></div>
+                        <div class="opciones"><a id="lista-chofer-camion" href="gerente/chofer/listaChoferCamion.html">Ocupados</a></div>
                     </div>
                 </div>
                 <div class="opcion camion">
-                    <h2>Camion</h2><br>
+                    <h2 id="camion">Camion</h2><br>
                     <div class="contenedor_opciones">
-                        <div class="opciones"><a href="gerente/camion/lista.html">Lista</a></div>
-                        <div class="opciones"><a href="gerente/camion/sinChofer.html">Sin Chofer</a></div>
-                        <div class="opciones"><a href="gerente/camion/disponibles.html">Disponibles</a></div>
-                        <div class="opciones"><a href="gerente/camion/transito.html">Camion en transito</a></div>
-                        <div class="opciones"><a href="gerente/camion/asignarChofer.html">Asignar un chofer</a></div>
-                        <div class="opciones"><a href="gerente/camion/marcarComoPreparado.html">Marcar como Preparado</a></div>
-                        <div class="opciones"><a href="gerente/camion/verCamionPlataforma.html">Ver en plataforma</a></div>
+                        <div class="opciones"><a id="lista-camion" href="gerente/camion/lista.html">Lista</a></div>
+                        <div class="opciones"><a id="sin-chofer" href="gerente/camion/sinChofer.html">Sin Chofer</a></div>
+                        <div class="opciones"><a id="disponibles-camion" href="gerente/camion/disponibles.html">Disponibles</a></div>
+                        <div class="opciones"><a id="transito" href="gerente/camion/transito.html">Camion en transito</a></div>
+                        <div class="opciones"><a id="asignar-camion" href="gerente/camion/asignarChofer.html">Asignar un chofer</a></div>
+                        <div class="opciones"><a id="marcar-camion" href="gerente/camion/marcarComoPreparado.html">Marcar como Preparado</a></div>
+                        <div class="opciones"><a id="ver-camion" href="gerente/camion/verCamionPlataforma.html">Ver en plataforma</a></div>
                     </div>
                 </div>
         </div>  
@@ -92,27 +95,30 @@
     <footer>
         <div class="container-footer">
             <div class="empresa-container espacio">
-                <h3>Empresa:</h3>
+                <h3 id="empresa">Empresa:</h3>
                 <ul class="empresa">
-                    <li><a href="#sobre_nosotros">Sobre Nosotros</a></li>
-                    <li><a href="servicios.html">Nuestros Servicios</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a id="nosotros-footer" href="#sobre_nosotros">Sobre Nosotros</a></li>
+                    <li><a id="servicios-footer" href="html/servicios.html">Nuestros Servicios</a></li>
+                    <li><a id="contacto-footer" href="#contacto">Contacto</a></li>
                 </ul>
             </div>
             <div class="espacio">
-                <h3>Dónde Ubicarnos:</h3>
+                <h3 id="donde-ubicarnos">Dónde Ubicarnos:</h3>
                 <div class="ubicacion">
-                    <i class="fa fa-map-marker"> Nos encontramos en calle 25 de agosto 1800</i>
+                    <i id="direccion" class="fa fa-map-marker"> Nos encontramos en calle 25 de agosto 1800</i>
                 </div>
             </div>
             <div id="contacto" class="contacto espacio">
                 <div class="container-redes">
                     <ul class="redes">
-                        <li class="numero">+598 *** ***</li>
+                        <li class="numero">+598 ***</li>
                         <li>
-                            <a href="https://www.youtube.com/watch?v=wUWMjdo9t6k&ab_channel=Temppo" target="_blank"><i class="red fa fa-youtube-play"></i></a>
-                            <a href="https://www.instagram.com/" target="_blank"><i class="red fa fa-instagram"></i></a>
-                            <a href="https://uy.linkedin.com/" target="_blank"><i class="red fa fa-linkedin"></i></a><br>
+                            <a href="https://www.youtube.com/watch?v=wUWMjdo9t6k&ab_channel=Temppo" target="_blank"><i
+                                    class="red fa fa-youtube-play"></i></a>
+                            <a href="https://www.instagram.com/forksoftware.uy/" target="_blank"><i
+                                    class="red fa fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/fork-software-55b93929a/" target="_blank"><i
+                                    class="red fa fa-linkedin"></i></a><br>
                         </li>
                         <li class="email"> forksoftware.esi@gmail.com</li>
                     </ul>
@@ -121,5 +127,6 @@
         </div>
     </footer>
     <script src="js/script.js"></script>
+    <script src="js/idioma/gerente.js"></script>
 </body>
 </html>

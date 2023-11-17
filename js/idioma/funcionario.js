@@ -10,16 +10,38 @@ let txtContacto = document.getElementById("contacto")
 let txtIngles = document.getElementById("ingles")
 let txtEspañol = document.getElementById("español")
 //homepage
-let txtBienvenido = document.getElementById("bienvenido")
 let txtGerente = document.getElementById("gerente")
-let txtFuncionario = document.getElementById("funcionario")
-let txtIngresar = document.getElementById("ingresar")
-let txtIngresar2 = document.getElementById("ingresar2")
-let txtQuienesSomos = document.getElementById("data-sobre-nosotros")
+
+let txtFuncionario = document.getElementById("paquete")
+let txtBuscar = document.getElementById("buscar")
+let txtListaPaquete = document.getElementById("lista-paquete")
+let txtCrearPaquete = document.getElementById("crear-paquete")
+let txtAsignarPaquete = document.getElementById("asignar-paquete")
+
+let txtLote = document.getElementById("lote")
+let txtListaLote = document.getElementById("lista-lote")
+let txtCrearLote = document.getElementById("crear-lote")
+let txtBuscarLote = document.getElementById("buscar-lote")
+let txtAsignarLote = document.getElementById("asignar-lote")
+
+let txtChofer = document.getElementById("chofer")
+let txtListaChofer = document.getElementById("lista-chofer")
+let txtDisponiblesChofer = document.getElementById("disponibles-chofer")
+let txtListaChoferCamion = document.getElementById("lista-chofer-camion")
+
+let txtCamion = document.getElementById("camion")
+let txtListaCamion = document.getElementById("lista-camion")
+let txtDisponiblesCamion = document.getElementById("disponibles-camion")
+let txtSinChofer = document.getElementById("sin-chofer")
+let txtTransito = document.getElementById("transito")
+let txtAsignarCamion = document.getElementById("asignar-camion")
+let txtMarcarCamion = document.getElementById("marcar-camion")
+let txtVerCamion = document.getElementById("ver-camion")
+
+//footer
 let txtEmpresa = document.getElementById("empresa")
 let txtDondeUbicarnos = document.getElementById("donde-ubicarnos")
 let txtDireccion = document.getElementById("direccion")
-//footer
 let txtNosotrosFooter = document.getElementById("nosotros-footer")
 let txtServiciosFooter = document.getElementById("servicios-footer")
 let txtContactoFooter = document.getElementById("contacto-footer")
@@ -27,19 +49,37 @@ let txtContactoFooter = document.getElementById("contacto-footer")
 function traducirAIngles(){
     //navbar
     txtInicio.innerHTML = "Home"
-    txtSobreNosotros.innerHTML = "About us"
     txtServicios.innerHTML = "Services"
-    txtContacto.innerHTML = "Contact"
     txtIngles.innerHTML = "English"
     txtEspañol.innerHTML = "Spanish"
+    
     //homepage
-    txtBienvenido.innerHTML = "Welcome to Fork Software"
     txtGerente.innerHTML = "Manager"
     txtFuncionario.innerHTML = "Employee"
-    txtIngresar.innerHTML = "Log in"
-    txtIngresar2.innerHTML = "Log in"
-    txtNosotros.innerHTML = "About us"
-    txtQuienesSomos.innerHTML = "Fork Software is an IT company specialized in the effective control and supervision of freight transportation. Its primary focus is to ensure the safety and efficiency of each shipment by providing businesses with complete, real-time visibility of their packages. Through its advanced technological platform, Fork Software enables detailed tracking of shipments, offering clients the peace of mind of knowing the exact location of their packages at all times. While currently operating exclusively in Uruguay, the company has plans for expansion into other neighboring countries in the future. With a commitment to innovation and collaboration with other businesses, Fork Software strives to adapt to the future needs of its clients in the logistics field."
+    txtBuscar.innerHTML = "Search"
+    txtListaPaquete.innerHTML = "Package list"
+    txtCrearPaquete.innerHTML = "Create package"
+    txtAsignarPaquete.innerHTML = "Assign package"
+
+    txtLote.innerHTML = "Lot"
+    txtListaLote.innerHTML = "Lot list"
+    txtCrearLote.innerHTML = "Create lot"
+    txtBuscarLote.innerHTML = "Search lot"
+    txtAsignarLote.innerHTML = "Assign lot"
+    txtChofer.innerHTML = "Driver"
+    txtListaChofer.innerHTML = "Driver list"
+    txtDisponiblesChofer.innerHTML = "Available drivers"
+    txtListaChoferCamion.innerHTML = "Driver list"
+
+    txtCamion.innerHTML = "Truck"
+    txtListaCamion.innerHTML = "Truck list"
+    txtDisponiblesCamion.innerHTML = "Available trucks"
+    txtSinChofer.innerHTML = "Without driver"
+    txtTransito.innerHTML = "In transit"
+    txtAsignarCamion.innerHTML = "Assign truck"
+    txtMarcarCamion.innerHTML = "Mark as Ready"
+    txtVerCamion.innerHTML = "See on platform"
+
     //footer
     txtEmpresa.innerHTML = "Company"
     txtDondeUbicarnos.innerHTML = "Where to find us"
@@ -52,7 +92,6 @@ function traducirAIngles(){
 function traducirAEspanol(){
     //navbar
     txtInicio.innerHTML = "Inicio"
-    txtSobreNosotros.innerHTML = "Sobre Nosotros"
     txtServicios.innerHTML = "Servicios"
     txtContacto.innerHTML = "Contacto"
     txtIngles.innerHTML = "Ingles"
