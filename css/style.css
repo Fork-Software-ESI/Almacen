@@ -38,6 +38,11 @@ header{
     cursor: pointer;
 }
 
+.idioma{
+    display: flex;
+    align-items: center;
+}
+
 .menu-idioma{
     position: relative;
 }
@@ -51,9 +56,9 @@ header{
 }
 
 .menu-idioma ul li{
+    padding: 7px;
     list-style: none;
     display: flex;
-    justify-content: space-between;
 }
 
 .menu-idioma ul li a{
@@ -73,14 +78,6 @@ header{
     vertical-align: middle;
 }
 
-.us::before{
-    background-image: url(https://flagsapi.com/US/flat/32.png);
-}
-
-.es::before{
-    background-image: url(https://flagsapi.com/ES/flat/32.png);
-}
-
 .menu-idioma:hover ul{
     display: block;
     left: -10px;
@@ -90,7 +87,7 @@ header{
     text-decoration: underline;
 }
 
-.seleccionar_idioma{
+.seleccionar-idioma{
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -99,14 +96,13 @@ header{
     width: 100px;
 }
 
-.seleccionar_idioma::before{
+.seleccionar-idioma::before{
     content: '';
     display: block;
     width: 32px;
     height: 32px;
-    background-image: url(https://flagsapi.com/ES/flat/32.png);
+    /* background-image: url(https://flagsapi.com/ES/flat/32.png); */
 }
-
 
 nav{
     display: flex;

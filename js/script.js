@@ -17,6 +17,25 @@ checkbox.addEventListener('change', function() {
     }
 });
 
+function toggleMenu() {
+    const menuLista = document.querySelector('.menu-lista');
+    menuLista.style.display = menuLista.style.display === 'none' ? 'block' : 'none';
+}
+
+function seleccionarIdioma(event) {
+    const idiomaSeleccionado = document.getElementById('idioma');
+    const banderaSeleccionada = document.getElementById('bandera');
+    const nuevoIdiomaElemento = event.target.closest('li');
+    const nuevoIdiomaTexto = nuevoIdiomaElemento.querySelector('.idioma').textContent;
+    const nuevaBanderaURL = nuevoIdiomaElemento.querySelector('img').src;
+
+    idiomaSeleccionado.textContent = nuevoIdiomaTexto;
+    banderaSeleccionada.src = nuevaBanderaURL;
+
+    document.querySelector('.menu-lista').style.display = 'none';
+}
+
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
