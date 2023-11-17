@@ -17,6 +17,28 @@
     margin: 0 auto;
 }
 
+.cerrar-sesion {
+    margin-left: auto;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20px;
+}
+
+.cerrar-sesion button {
+    background-color: #ff3333;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+
+}
+
+.cerrar-sesion button:hover {
+    background-color: #cc0000;
+}
+
 body{
     background-color: #141414;
     position: relative;

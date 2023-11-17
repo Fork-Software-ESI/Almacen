@@ -1,6 +1,6 @@
-const URL = "http://localhost:8001/api/gerente/"
+const URL = "http://localhost:8001/api/gerente/";
 
-function buscarPaquete(ID_Cliente){
+function buscarPaquete(ID_Cliente) {
     var ID_Cliente = document.getElementById("ID_Cliente").value;
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/paquetes",
@@ -8,30 +8,42 @@ function buscarPaquete(ID_Cliente){
         data: {
             'ID_Cliente': ID_Cliente,
         },
-        success:function(data){
-            document.getElementById('tablaResultados');
-            tablaResultados.innerHTML = '';
-            data.Paquete.forEach(paquete => {
-                var resultado = document.createElement('tr');
-                resultado.innerHTML = `
-                    <td data-cell="ID Paquete">${paquete.ID}</td>
-                    <td data-cell="ID Cliente">${paquete.ID_Cliente}</td>
-                    <td data-cell="Descripcion">${paquete.Descripcion}</td>
-                    <td data-cell="Peso_Kg">${paquete.Peso_Kg}</td>
-                    <td data-cell="ID Estado">${paquete.ID_Estado}</td>
-                    <td data-cell="Destino">${paquete.Destino}</td>
-                    <td data-cell="Editar"><button class="btn-modificar" onclick="datosPaquete('${paquete.ID}', '${paquete.ID_Cliente}', '${paquete.Descripcion}', '${paquete.Peso_Kg}', '${paquete.ID_Estado}', '${paquete.Destino}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
-                    <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarPaquete(${paquete.ID})"><i class="fa fa-trash"></i></button></td>
+        success: function (data) {
+            document.getElementById('tablaResultados').innerHTML = '';
+
+            if (data.Paquete && Array.isArray(data.Paquete) && data.Paquete.length > 0) {
+                data.Paquete.forEach(paquete => {
+                    var resultado = document.createElement('tr');
+                    resultado.innerHTML = `
+                        <td data-cell="ID Paquete">${paquete.ID}</td>
+                        <td data-cell="ID Cliente">${paquete.ID_Cliente}</td>
+                        <td data-cell="Descripcion">${paquete.Descripcion}</td>
+                        <td data-cell="Peso_Kg">${paquete.Peso_Kg}</td>
+                        <td data-cell="ID Estado">${paquete.ID_Estado}</td>
+                        <td data-cell="Destino">${paquete.Destino}</td>
+                        <td data-cell="Editar"><button class="btn-modificar" onclick="datosPaquete('${paquete.ID}', '${paquete.ID_Cliente}', '${paquete.Descripcion}', '${paquete.Peso_Kg}', '${paquete.ID_Estado}', '${paquete.Destino}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
+                        <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarPaquete(${paquete.ID})"><i class="fa fa-trash"></i></button></td>
                     `;
-                document.getElementById('tablaResultados').appendChild(resultado);
-            });
-            document.getElementById("footer").style.position = "relative";
+                    document.getElementById('tablaResultados').appendChild(resultado);
+                });
+
+                if (data.Paquete.length >= 4) {
+                    document.getElementById("footer").style.position = "relative";
+                } else {
+                    document.getElementById("footer").style.position = "absolute";
+                }
+            } else {
+                alert("No se encontraron paquetes para el ID de cliente proporcionado.");
+                document.getElementById("footer").style.position = "absolute";
+            }
         },
-        error: function(){
+        error: function () {
             alert("No se pudo encontrar el paquete");
         }
     });
 }
+
+
 
 function listarPaquetesAlmacen(ID_Almacen) {
     var ID_Almacen = document.getElementById("ID_Almacen").value;
@@ -71,7 +83,7 @@ function listarPaquetesAlmacen(ID_Almacen) {
 }
 
 function crearPaquete(ID_Gerente, Descripcion, Peso_Kg, ID_Cliente, Calle, Numero_Puerta, Ciudad) {
-    var ID_Gerente =  document.getElementById("ID_Gerente").value;
+    var ID_Gerente = document.getElementById("ID_Gerente").value;
     var Descripcion = document.getElementById("Descripcion").value;
     var Peso_Kg = document.getElementById("Peso_Kg").value;
     var ID_Cliente = document.getElementById("ID_Cliente").value;
@@ -116,7 +128,7 @@ function datosPaquete(ID, ID_Cliente, Descripcion, Peso_Kg, ID_Estado, Destino) 
     window.location.href = `../paquete/editar.html?ID=${ID}&ID_Cliente=${ID_Cliente}&Descripcion=${Descripcion}&Peso_Kg=${Peso_Kg}&ID_Estado=${ID_Estado}&Calle=${Calle}&Numero_Puerta=${Numero_Puerta}&Ciudad=${Ciudad}`;
 }
 
-function editarPaquete(ID, ID_Cliente, Descripcion, Peso_Kg, ID_Estado, Calle, Numero_Puerta, Ciudad){
+function editarPaquete(ID, ID_Cliente, Descripcion, Peso_Kg, ID_Estado, Calle, Numero_Puerta, Ciudad) {
     var ID = document.getElementById("ID").value;
     var ID_Cliente = document.getElementById("ID_Cliente").value;
     var Descripcion = document.getElementById("Descripcion").value;
@@ -178,7 +190,7 @@ function eliminarPaquete(ID) {
     });
 }
 
-function crearLote(ID_Gerente, Descripcion, Peso_Kg){
+function crearLote(ID_Gerente, Descripcion, Peso_Kg) {
     var ID_Gerente = document.getElementById("ID_Gerente").value;
     var Descripcion = document.getElementById("Descripcion").value;
     var Peso_Kg = document.getElementById("Peso_Kg").value;
@@ -208,7 +220,7 @@ function crearLote(ID_Gerente, Descripcion, Peso_Kg){
             document.getElementById("ID_Gerente").value = "";
         },
         error: function () {
-            
+
             alert("No se pudo crear el lote");
         }
     });
@@ -260,13 +272,13 @@ function listarLote(ID_Gerente) {
 }
 
 
-function asignarPaqueteLote(ID_Gerente, ID_Paquete, ID_Lote){
+function asignarPaqueteLote(ID_Gerente, ID_Paquete, ID_Lote) {
     var ID_Gerente = document.getElementById("ID_Gerente").value;
     var ID_Paquete = document.getElementById("ID_Paquete").value;
     var ID_Lote = document.getElementById("ID_Lote").value;
-    
+
     console.log(ID_Gerente, ID_Paquete, ID_Lote);
-    
+
     if (!ID_Gerente || !ID_Paquete || !ID_Lote) {
         alert("Completa todos los campos obligatorios en el formulario.");
         return;
@@ -292,7 +304,7 @@ function asignarPaqueteLote(ID_Gerente, ID_Paquete, ID_Lote){
     });
 }
 
-function buscarLote(ID_Gerente, ID_Lote){
+function buscarLote(ID_Gerente, ID_Lote) {
     var ID_Gerente = document.getElementById("ID_Gerente").value;
     var ID_Lote = document.getElementById("ID_Lote").value;
 
@@ -320,7 +332,7 @@ function buscarLote(ID_Gerente, ID_Lote){
                 <td data-cell="Editar"><button class="btn-modificar" onclick="datosLote('${data.Lote.ID}', '${data.Lote.Descripcion}', '${data.Lote.Peso_Kg}', '${data.Lote.ID_Estado}')" style="color: black;"><i class="fa fa-pencil"></i></button></td>
                 <td data-cell="Eliminar"><button class="btn-eliminar" onclick="eliminarLote(${data.Lote.ID})"><i class="fa fa-trash"></i></button></td>
             `;
-            document.getElementById('tablaResultados').appendChild(resultado); 
+            document.getElementById('tablaResultados').appendChild(resultado);
         },
         error: function () {
             alert("No se pudo encontrar el lote");
@@ -328,11 +340,11 @@ function buscarLote(ID_Gerente, ID_Lote){
     });
 }
 
-function datosLote(ID, Descripcion, Peso_Kg, ID_Estado){
+function datosLote(ID, Descripcion, Peso_Kg, ID_Estado) {
     window.location.href = `../lote/editar.html?ID=${ID}&Descripcion=${Descripcion}&Peso_Kg=${Peso_Kg}&ID_Estado=${ID_Estado}`;
 }
 
-function editarLote(ID, Descripcion, Peso_Kg, ID_Estado){
+function editarLote(ID, Descripcion, Peso_Kg, ID_Estado) {
     var ID = document.getElementById("ID").value;
     var Descripcion = document.getElementById("Descripcion").value;
     var Peso_Kg = document.getElementById("Peso_Kg").value;
@@ -367,7 +379,7 @@ function editarLote(ID, Descripcion, Peso_Kg, ID_Estado){
     });
 }
 
-function eliminarLote(ID){
+function eliminarLote(ID) {
     console.log(ID);
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/lotes/" + ID,
@@ -385,7 +397,7 @@ function eliminarLote(ID){
     });
 }
 
-function verChofer(ID){
+function verChofer(ID) {
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/choferes",
         type: "GET",
@@ -411,7 +423,7 @@ function verChofer(ID){
     });
 }
 
-function verChoferesDisponibles(ID){
+function verChoferesDisponibles(ID) {
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/choferes/disponibles",
         type: "GET",
@@ -437,7 +449,7 @@ function verChoferesDisponibles(ID){
     });
 }
 
-function listaChoferCamion(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
+function listaChoferCamion(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado) {
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/choferes/ocupados",
         type: "GET",
@@ -469,7 +481,7 @@ function listaChoferCamion(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
     });
 }
 
-function verCamiones(ID, Matricula, PesoMaximoKg){
+function verCamiones(ID, Matricula, PesoMaximoKg) {
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/camiones",
         type: "GET",
@@ -499,7 +511,7 @@ function verCamiones(ID, Matricula, PesoMaximoKg){
     });
 }
 
-function verCamionesSinChofer(ID, Matricula, PesoMaximoKg){
+function verCamionesSinChofer(ID, Matricula, PesoMaximoKg) {
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/camiones/libres",
         type: "GET",
@@ -527,7 +539,7 @@ function verCamionesSinChofer(ID, Matricula, PesoMaximoKg){
     });
 }
 
-function verCamionesDisponibles(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
+function verCamionesDisponibles(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado) {
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/camiones/disponibles",
         type: "GET",
@@ -557,7 +569,7 @@ function verCamionesDisponibles(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Esta
     });
 }
 
-function asignarChoferCamion(ID_Chofer, ID_Camion){
+function asignarChoferCamion(ID_Chofer, ID_Camion) {
     var ID_Chofer = document.getElementById("ID_Chofer").value;
     var ID_Camion = document.getElementById("ID_Camion").value;
     console.log(ID_Chofer, ID_Camion);
@@ -567,7 +579,7 @@ function asignarChoferCamion(ID_Chofer, ID_Camion){
         return;
     }
 
-    if(ID_Chofer === undefined || ID_Camion === undefined){
+    if (ID_Chofer === undefined || ID_Camion === undefined) {
         alert("Alguno de los valores es undefined. Verifica tu formulario.");
         return;
     }
@@ -590,7 +602,7 @@ function asignarChoferCamion(ID_Chofer, ID_Camion){
     });
 }
 
-function asignarLoteCamion(ID_Lote, ID_Camion){
+function asignarLoteCamion(ID_Lote, ID_Camion) {
     var ID_Lote = document.getElementById("ID_Lote").value;
     var ID_Camion = document.getElementById("ID_Camion").value;
     console.log(ID_Lote, ID_Camion);
@@ -599,7 +611,7 @@ function asignarLoteCamion(ID_Lote, ID_Camion){
         return;
     }
 
-    if(ID_Lote === undefined || ID_Camion === undefined){
+    if (ID_Lote === undefined || ID_Camion === undefined) {
         alert("Alguno de los valores es undefined. Verifica tu formulario.");
         return;
     }
@@ -637,7 +649,7 @@ function asignarLoteCamion(ID_Lote, ID_Camion){
     }
 }
 
-function verCamionesEnPlataformas(ID_Almacen){
+function verCamionesEnPlataformas(ID_Almacen) {
     var ID_Almacen = document.getElementById("ID_Almacen").value;
     console.log(ID_Almacen);
     jQuery.ajax({
@@ -667,7 +679,7 @@ function verCamionesEnPlataformas(ID_Almacen){
     });
 }
 
-function verCamioneEnTransito(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado){
+function verCamioneEnTransito(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado) {
     jQuery.ajax({
         url: "http://localhost:8001/api/gerente/camiones/transito",
         type: "GET",
@@ -714,7 +726,7 @@ function verCamioneEnTransito(ID_Chofer, ID_Camion, Fecha_Hora_Inicio, ID_Estado
     });
 }
 
-function marcarCamionComoPreparado(ID_Chofer, ID_Camion){
+function marcarCamionComoPreparado(ID_Chofer, ID_Camion) {
     var ID_Chofer = document.getElementById("ID_Chofer").value;
     var ID_Camion = document.getElementById("ID_Camion").value;
     console.log(ID_Chofer, ID_Camion);

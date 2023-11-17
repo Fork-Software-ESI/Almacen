@@ -6,7 +6,6 @@ let txtInicio = document.getElementById("inicio")
 let txtSobreNosotros = document.getElementById("sobre-nosotros-txt")
 let txtNosotros = document.getElementById("SobreNosotros")
 let txtServicios = document.getElementById("servicios")
-let txtContacto = document.getElementById("contacto")
 let txtIngles = document.getElementById("ingles")
 let txtEspañol = document.getElementById("español")
 //homepage
@@ -93,7 +92,6 @@ function traducirAEspanol(){
     //navbar
     txtInicio.innerHTML = "Inicio"
     txtServicios.innerHTML = "Servicios"
-    txtContacto.innerHTML = "Contacto"
     txtIngles.innerHTML = "Ingles"
     txtEspañol.innerHTML = "Español"
     //homepage

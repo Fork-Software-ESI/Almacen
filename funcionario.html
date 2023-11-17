@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="js/validar.js"></script>
 </head>
+
 <body>
     <header>
         <nav>
@@ -47,33 +49,41 @@
                 </ul>
             </div>
         </nav>
+        <div class="cerrar-sesion">
+            <button onclick="cerrarSesion()">Cerrar Sesión</button>
+        </div>
     </header>
 
     <main>
         <div class="contenedor">
             <h1 id="funcionario">- Funcionario -</h1>
-                <div class="opcion paquete">
-                    <h2 id="paquete">Paquete</h2><br>
-                    <div class="contenedor_opciones">
-                        <div class="opciones"><a id="lista-paquete" href="funcionario/paquete/lista.html">Lista</a></div>
-                        <div class="opciones"><a id="registrar-paquete" href="funcionario/paquete/registarEstanteria.html">Registar en Estante</a></div>
-                    </div>
+            <div class="opcion paquete">
+                <h2 id="paquete">Paquete</h2><br>
+                <div class="contenedor_opciones">
+                    <div class="opciones"><a id="lista-paquete" href="funcionario/paquete/lista.html">Lista</a></div>
+                    <div class="opciones"><a id="registrar-paquete"
+                            href="funcionario/paquete/registarEstanteria.html">Registar en Estante</a></div>
                 </div>
-                <div class="opcion lote">
-                    <h2 id="lote">Lote</h2><br>
-                    <div class="contenedor_opciones">
-                        <div class="opciones"><a id="lista-lote" href="funcionario/lote/lista.html">Lista</a></div>
-                        <div class="opciones"><a id="lista-paquete-lote" href="funcionario/lote/crear.html">Lista Paquetes en lote</a></div>
-                        <div class="opciones"><a id="cargar-lote" href="funcionario/lote/cargarCamion.html">Cargar en Camion</a></div>
-                    </div>
+            </div>
+            <div class="opcion lote">
+                <h2 id="lote">Lote</h2><br>
+                <div class="contenedor_opciones">
+                    <div class="opciones"><a id="lista-lote" href="funcionario/lote/lista.html">Lista</a></div>
+                    <div class="opciones"><a id="lista-paquete-lote" href="funcionario/lote/crear.html">Lista Paquetes
+                            en lote</a></div>
+                    <div class="opciones"><a id="cargar-lote" href="funcionario/lote/cargarCamion.html">Cargar en
+                            Camion</a></div>
                 </div>
-                <div class="opcion estante">
-                    <h2 id="estante">Estante</h2><br>
-                    <div class="contenedor_opciones">
-                        <div class="opciones"><a id="trasladar-estante" href="funcionario/estante/trasladarPaquete.html">Trasladar Paquete</a></div>
-                        <div class="opciones"><a id="quitar-estante" href="funcionario/estante/quitarPaquete.html">Quitar paquete</a></div>
-                    </div>
+            </div>
+            <div class="opcion estante">
+                <h2 id="estante">Estante</h2><br>
+                <div class="contenedor_opciones">
+                    <div class="opciones"><a id="trasladar-estante"
+                            href="funcionario/estante/trasladarPaquete.html">Trasladar Paquete</a></div>
+                    <div class="opciones"><a id="quitar-estante" href="funcionario/estante/quitarPaquete.html">Quitar
+                            paquete</a></div>
                 </div>
+            </div>
         </div>
     </main>
 
@@ -114,4 +124,5 @@
     <script src="js/script.js"></script>
     <script src="js/idioma/funcionario.js"></script>
 </body>
+
 </html>
